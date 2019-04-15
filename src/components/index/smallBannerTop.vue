@@ -1,54 +1,67 @@
 <template>
   <!-- banner -->
-  <swiper :options="swiperOption" ref="mySwiper" class="swipercontainer">
-      <!-- slides -->
-      <swiper-slide class="bg">
-          <img src="../../assets/img/index/small001.jpg" alt="" class="img-responsive">
-      </swiper-slide>
-      <swiper-slide class="bg">
-          <img src="../../assets/img/index/small002.jpg" alt="" class="img-responsive">
-      </swiper-slide>
-  </swiper>
+  <div class="swiper-container indexBannerTop" id="indexBannerTop">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="(bannerInfos,item) in bannerInfo" :key="item" v-if="item>=6&&item<9">
+                <img :src="bannerInfos.content01" alt="" class="img-responsive" @click="linkTo(bannerInfos.content02)">
+            </div>
+        </div>
+  </div>
 </template>
 
 <script>
 import 'swiper/dist/css/swiper.css'
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import Swiper from 'swiper'
 export default {
-    components: {
-        swiper,
-        swiperSlide
-    },
-    name: 'carrousel',
     data () {
       return {
-        // 轮播
-        swiperOption: {
-            // notNextTick: true,
-            autoplay: {
-                delay:4000,
-                disableOnInteraction: false,
-            },
-            loop: true,
-            speed:500,
-            effect : 'fade'
-        },
+          bannerInfo:[]
       }
     },
-    computed:{
-      swiper(){
-        // var swiper01=this.$refs.mySwiper.swiper;
-        // return swiper01
-        return this.$refs.mySwiper.swiper;
-      }
+    methods:{
+        getBannerInfo(){
+            this.axios({
+                method: 'get',
+                url: '/manager/official/list.do',
+                params:{
+                    type:"官网首页banner"
+                }
+            }).then((res)=>{
+                const msg=res.data.data
+                // console.log(msg)
+                this.bannerInfo=msg
+                this.$nextTick(()=>{
+                    this.swiperInit()
+                })
+            })
+        },
+        swiperInit(){
+            const self=this
+            new Swiper('#indexBannerTop', {
+                 notNextTick: true,
+                 autoplay: {
+                    delay:4000,
+                    disableOnInteraction: false,
+                },
+                loop: true,
+                effect : 'fade',
+                speed:600,
+                grabCursor : true,
+            })
+        },
+        linkTo(href){
+            window.open(href,"_blank")
+        }
     },
     mounted(){
-    //    console.log("每次切换都会触发我");
-    //    this.swiper.slideTo(0,1000, false);
+        this.getBannerInfo()
     }
 }
 </script>
 
-<style>
-
+<style lang="scss">
+    .indexBannerTop{
+        min-height: 175px;
+        background-color: #eee;
+    }
 </style>

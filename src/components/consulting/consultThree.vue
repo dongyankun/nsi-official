@@ -1,14 +1,14 @@
 <template>
     <div class="consuleMain">
         <div class="banner">
-            <img src="../../assets/img/consulting/streng.jpg" alt="">
+            <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/streng.jpg" alt="">
         </div> 
         <div class="item">
             <p style="color:#333;text-align:center;">行业知识资产 、专家智力资本 、数据资产 、行业实践</p>
             <p style="color:#333">Our unparalleled strengths in problem solving include market insight, think tank research,data mining and industrial best practices in the global international school sector.</p>
             <div class="strengs">
                 <div class="instrengs">
-                    <div class="strengsTitle"><img src="../../assets/img/consulting/strengs1.png" alt=""><span>行业  Industry </span></div>
+                    <div class="strengsTitle"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/strengs1.png" alt=""><span>行业  Industry </span></div>
                     <ul>
                         <li>深耕国际教育行业：Rooted in international education industry</li>
                         <li>原创文章1000+ NSI has published : 1000+ Original Articles</li>
@@ -17,7 +17,7 @@
                     </ul>
                 </div>
                 <div class="instrengs">
-                    <div class="strengsTitle"><img src="../../assets/img/consulting/strengs2.png" alt=""><span>实践  Practice </span></div>
+                    <div class="strengsTitle"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/strengs2.png" alt=""><span>实践  Practice </span></div>
                     <ul>
                         <li>国内访校：走访20+城市、90+国际学校</li>
                         <li>海外研学：美国研学团、日本研学团等</li>
@@ -26,7 +26,7 @@
                     </ul>
                 </div>
                 <div class="instrengs">
-                    <div class="strengsTitle"><img src="../../assets/img/consulting/strengs3.png" alt=""><span>数据  Data </span></div>
+                    <div class="strengsTitle"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/strengs3.png" alt=""><span>数据  Data </span></div>
                     <ul>
                         <li>四库全书目前已收录：NSI database has collected data of：</li>
                         <li>国际学校980+ 980+ International Schools</li>
@@ -36,7 +36,7 @@
                     </ul>
                 </div>
                 <div class="instrengs">
-                    <div class="strengsTitle"><img src="../../assets/img/consulting/strengs4.png" alt=""><span>专家  Think Tank </span></div>
+                    <div class="strengsTitle"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/strengs4.png" alt=""><span>专家  Think Tank </span></div>
                     <ul>
                         <li>政府政策   Policy</li>
                         <li>课程设计   Curriculum</li>

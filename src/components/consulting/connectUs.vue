@@ -31,10 +31,10 @@
         </el-dialog>
         <div class="rightConnect">
             <ul>
-                <li><img src="../../assets/img/consulting/rightConnect1.png"></li>
-                <li><a href="tel://13800000000"><img src="../../assets/img/consulting/rightConnect2.png"></a></li>
-                <li @click="pathTo"><img src="../../assets/img/consulting/rightConnect3.png"></li>
-                <li @click="toTop"><img style="width:30px;height:25px;" src="../../assets/img/consulting/rightConnect4.png"></li>
+                <li><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/rightConnect1.png"></li>
+                <li><a href="tel://13800000000"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/rightConnect2.png"></a></li>
+                <li @click="pathTo"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/rightConnect3.png"></li>
+                <li @click="toTop"><img style="width:30px;height:25px;" src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/rightConnect4.png"></li>
             </ul>
         </div>
     </div>

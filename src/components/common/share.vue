@@ -3,8 +3,8 @@
         <div class="shareBox">
             <div class="share weixin">
                 <el-popover class="text-center" placement="top-start" title="打开微信 “扫一扫”" width="190" trigger="hover" content="微信二维码">
-                    <img width="150" :src="'http://qr.liantu.com/api.php?text='+newsShareInfo.articleUrl" alt="">
-                    <span slot="reference" title="分享到微信" class="iconfont icon-weixin weiChat"></span>
+                    <img width="150" :src="weixinQRcode" alt="">
+                    <span slot="reference" title="分享到微信" class="iconfont icon-weixin weiChat" @mouseenter="addUrl(newsShareInfo.articleUrl)"></span>
                 </el-popover>
             </div>
             <div class="share weibo">
@@ -20,11 +20,21 @@ export default {
         newsShareInfo:{},
         required: true
     },
+    data(){
+        return{
+            weixinQRcode:""
+        }
+    },
     methods:{
         shareWibo(url,title,picurl){
-            let sharesinastring='http://v.t.sina.com.cn/share/share.php?title='+title+'&url='+url+'&content=utf-8&sourceUrl='+url+'&pic='+picurl;
+            let sharesinastring='https://v.t.sina.com.cn/share/share.php?title='+title+'&url='+url+'&content=utf-8&sourceUrl='+url+'&pic='+picurl;
             window.open(sharesinastring,'newwindow','height=400,width=400,top=100,left=100');
-        }
+        },
+        addUrl(url) {
+            let _url=url.split('https')[1]
+            let currentUrl='http'+_url
+            this.weixinQRcode = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + currentUrl
+        },
     }
 }
 </script>

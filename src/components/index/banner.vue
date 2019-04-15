@@ -1,12 +1,12 @@
 <template>
   <div class="bg banner-com">
       <div class="container">
-          <div class="row">
-              <div class="col-md-9 pr0 pl0">
+          <div class="row p7">
+              <div class="col-md-9 pr7 pl0">
                   <big-banner/>
               </div>
               <div class="col-md-3 pl0 pr0">
-                <small-banner-top class="bannerTop"/>
+                <small-banner-top class="bannerTop mb7"/>
                 <small-banner-bottom class="bannerBottom"/>
               </div>
           </div>
@@ -45,6 +45,15 @@ export default {
         }
         .pl0{
           padding-left: 0;
+        }
+        .pr7{
+          padding-right: 7px;
+        }
+        .p7{
+          padding: 7px;
+        }
+        .mb7{
+          margin-bottom: 7px;
         }
   }
 }

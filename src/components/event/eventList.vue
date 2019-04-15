@@ -3,12 +3,33 @@
         <div class="container">
             <h2 class="title">热门活动<span class="hot">HOT</span></h2>
             <div class="row">
-                <div class="col-md-6 mb15" v-for="(list,index) in eventList">
-                    <a class="event-list" href="javascript:;" @click="getDetail">
+                <!-- <div class="col-md-4 col-xs-12 mb15" v-for="(list,index) in eventList">
+                    <a class="event-list" :href="list.url" target="_blank">
                         <div class="event-box" :style="{'background-image':'url('+list.imgSrc+')'}">
                             <h3 class="event-box-title" :title="list.title">{{list.title}}</h3>
                         </div>
                     </a>
+                </div> -->
+                <div class="col-md-6 col-xs-6 mb30" v-for="(list,index) in eventList" :key="index">
+                    <div class="row">
+                      <div class="col-md-8 pl0 pr0">
+                        <a class="event-list" :href="list.url" target="_blank">
+                            <div v-if="isMobile" class="event-box" :style="{'background-image':'url('+list.imgSrcM+')'}">
+                                <h3 class="event-box-title" :title="list.title">{{list.title}}</h3>
+                            </div>
+                            <div v-else class="event-box" :style="{'background-image':'url('+list.imgSrc+')'}">
+                                <h3 class="event-box-title" :title="list.title">{{list.title}}</h3>
+                            </div>
+                        </a>
+                      </div>
+                      <div class="col-md-4 pr0">
+                        <div class="researchInfo">
+                            <h5 class="research-title">{{list.title}}</h5>
+                            <p class="apply-time"><span class="iconfont icon-shijian timeLogo"></span> {{list.time}}</p>
+                            <a :href="list.url" target="_blank" class="toApply">了解详情</a>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt20">
@@ -25,22 +46,50 @@ export default {
     data(){
         return{
             addMoreHtml:"加载更多",
+            isMobile:false,
             eventList:[
                 {
-                    title:"2018国际学校发展大会",
-                    imgSrc:require("../../assets/img/event/eventBanner01.jpg")
+                    title:"2018VIS国际学校发展大会",
+                    imgSrc:"https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/event/eventBanner03.jpg",
+                    imgSrcM:'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/event/eventBanner03.jpg',
+                    url:"http://data.xinxueshuo.cn/nsi-class/admin/activity/meeting/visM.html",
+                    time:"2018.11.09-2018.11.11"
+                    
                 },
                 {
-                    title:"2017国际学校发展大会",
-                    imgSrc:require("../../assets/img/event/eventBanner02.jpg")
+                    title:"新荷 ● 中国国际学校节",
+                    imgSrc:"https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/event/eventBanner01.jpg",
+                    imgSrcM:'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/event/eventM03.jpg',
+                    url:"http://data.xinxueshuo.cn/nsi-event/Lotus2018/lotus.html",
+                    time:"2018.02-2018.10"
                 },
                 {
-                    title:"2016国际学校发展大会",
-                    imgSrc:require("../../assets/img/event/eventBanner03.jpg")
+                   title:"2017VIS国际学校发展大会",
+                   imgSrc:"https://nsi.oss-cn-zhangjiakou.aliyuncs.com/ArticlePic/activity002.jpg",
+                   imgSrcM:'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/event/eventM02.jpg',
+                   url:"http://data.xinxueshuo.cn/nsi-event/event/vis/vis2017/vis2017.html",
+                   time:"2017.11.09-2017.11.11"
                 },
                 {
-                    title:"2015国际学校发展大会",
-                    imgSrc:require("../../assets/img/event/eventBanner04.jpg")
+                   title:"2017国际学校投融资分会",
+                   imgSrc:'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/event/eventBanner05.jpg',
+                   imgSrcM:'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/event/eventM01.jpg',
+                   url:"http://data.xinxueshuo.cn/nsi-event/event/vis/vis201702/vis201702.html",
+                   time:"2017.5.20-2017.5.21"
+                },
+                {
+                   title:"2016VIS国际学校发展大会",
+                   imgSrc:"https://img1.gtimg.com/18/1854/185463/18546304_980x1200_0.jpg",
+                   imgSrcM:"https://img1.gtimg.com/18/1854/185463/18546304_980x1200_0.jpg",
+                   url:"http://data.xinxueshuo.cn/nsi-event/event/vis/vis2016/vis2016.html",
+                   time:"2016.11.09-2016.11.11"
+                },
+                {
+                   title:"2015VIS国际学校发展大会",
+                   imgSrc:"https://img1.gtimg.com/edu/pics/hv1/85/77/1990/129419470.jpg",
+                   imgSrcM:"https://img1.gtimg.com/edu/pics/hv1/85/77/1990/129419470.jpg",
+                   url:"http://data.xinxueshuo.cn/nsi-event/event/vis/vis2015/vis2015.html",
+                   time:"2015.11.09-2015.11.11"
                 }
             ]
         }
@@ -51,6 +100,13 @@ export default {
         },
         addMore(){
             console.log("加载更多")
+        }
+    },
+    created(){
+        if(window.innerWidth<769){
+            this.isMobile=true
+        }else{
+            this.isMobile=false
         }
     }
 }
@@ -74,12 +130,18 @@ export default {
         .mb15{
             margin-bottom: 15px;
         }
+        .mb30{
+            margin-bottom: 30px;
+        }
         .mt20{
             margin-top: 20px;
         }
         background: #fafafa;
         margin-bottom: -50px;
         padding: 50px 0;
+        @media (max-width: 768px) {
+            padding: 0 0 50px;
+        }
         .title{
             display: inline-block;
             font-family: PingFangSC-Semibold;
@@ -90,6 +152,10 @@ export default {
             height: 50px;
             position: relative;
             margin-bottom: 40px;
+            @media (max-width: 768px) {
+                font-size: 30px;
+                margin-bottom: 20px;
+            }
             .hot{
                 position: absolute;
                 right:-12px;
@@ -98,6 +164,9 @@ export default {
                 color: #e4e4e4;
                 letter-spacing: 0;
                 line-height: 20px;
+                @media (max-width: 768px) {
+                    top: 40px;
+                }
             }
         }
         .event-list{
@@ -120,37 +189,45 @@ export default {
             .event-box{
                 position: relative;
                 width: 100%;
-                height: 300px;
+                height: 185px;
                 background-size: cover;
                 background-position: center;
                 border-radius: 2px;
+                @media (max-width: 768px) {
+                    height: 150px;
+                }
             &::before{
                     display: block;
                     content: "";
                     width: 100%;
-                    height: 300px;
+                    height: 100%;
                     position: absolute;
                     left: 0;
                     top: 0;
                     background: rgba(0, 0, 0, 0);
                     background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.05) 2%, rgba(0, 0, 0, 0.3) 100%);
                     @include transitionAnimate;
+                    @media (max-width: 768px) {
+                    height: 150px;
+                }
                 }
             &:hover::before{
                     opacity: .2;
                 }
+            &:hover .event-box-title{
+                opacity:1;
+            }
             }
             .event-box-title{
                     position: absolute;
-                    padding-right: 50px;
-                    left: 30px;
-                    bottom: 30px;
+                    // padding-right: 50px;
+                    left: 15px;
+                    bottom: 15px;
                     margin-top: 10px;
                     font-family: PingFangSC-Semibold;
-                    font-size: 20px;
                     color: #FFF;
                     font-weight: 700;
-                    font-size: 28px;
+                    font-size: 25px;
                     letter-spacing: 0;
                     line-height: 34px;
                     overflow: hidden;
@@ -163,8 +240,66 @@ export default {
                     max-height: 34px;
                     margin-bottom: 2px;
                     text-shadow: 0 4px 8px rgba(7, 17, 27, 0.8);
+                    opacity: 0;
                     @include transitionAnimate;
+                    @media (max-width: 768px) {
+                        opacity:1;
+                        font-size: 16px;
+                        padding-right: 15px;
+                        left: 15px;
+                        bottom: 15px;
+                        display:none;
+                    }
             }
+        }
+        .researchInfo{
+          position: relative;
+          padding-top: 20px;
+          @media (max-width: 768px) {
+            padding-top: 0;
+          }
+          .research-title{
+              font-weight: 700;
+              font-size: 17px;
+              margin-bottom: 20px;
+              color: #4d555d;
+              min-height: 39px;
+              @media (max-width: 768px) {
+                margin-bottom: 10px;
+              }
+            }
+          .toApply{
+            display: inline-block;
+            background: #b89561;
+            box-shadow: 0 4px 8px 0 rgba(28, 31, 33, 0.2);
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 200;
+            color: #fff;
+            padding: 0 22px;
+            height: 33px;
+            line-height: 33px;
+            text-align: center;
+            &:link{
+              text-decoration: none;
+            }
+            &:hover{
+              text-decoration: none;
+              background-color:#c2a77f
+            }
+          }
+          // .timeLogo{
+          //   position: relative;
+          //   top: 0px;
+          // }
+          .apply-time{
+            font-size: 15px;
+            margin-bottom: 15px;
+            color: #666;
+            @media (max-width: 768px) {
+              margin-bottom: 10px;
+            }
+          }
         }
         .loadMore{
             display: inline-block;

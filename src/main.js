@@ -19,9 +19,10 @@ Vue.config.productionTip = false
 // axios.defaults.baseURL = "http://192.168.0.191:8080/nsi-1.0"
 
 // 生产
-axios.defaults.baseURL = "http://data.xinxueshuo.cn/nsi-1.0"
+axios.defaults.baseURL = "https://data.xinxueshuo.cn/nsi-1.0"
 
 Vue.prototype.axios = axios;
+// Vue.prototype.wxConfig = wxConfig
 
 // i18n
 const i18n = new VueI18n({

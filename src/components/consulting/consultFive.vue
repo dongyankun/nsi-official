@@ -1,7 +1,7 @@
 <template>
     <div class="consuleMain">
         <div class="banner">
-            <img src="../../assets/img/consulting/connect.jpg" alt="">
+            <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/connect.jpg" alt="">
         </div> 
         <div class="item connectUs">
             <p>在中国，新学说咨询团队已经为<span style="font-size: 20px;color:#17518c;">知名教育团队</span></p>

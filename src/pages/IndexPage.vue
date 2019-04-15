@@ -4,14 +4,15 @@
         <Banner class="mt30 bannerPC"/>
         <banner-m class="showInMobile bannerM"/>
         <div class="container-fulid">
+            <nsi-product class="hideInmobile"></nsi-product>
             <div class="container newestPlpr0">
                 <!-- 最新动态 -->
-                <div class="newest pt50">
+                <div class="newest indexNews">
                     <!-- title -->
                     <div class="index-title">
                         <span class="line left-line"></span>
-                        <h3 class="text-center mb0_768">最新动态</h3>
-                        <h3 class="text-center mt0"><small>Recent Developments</small></h3>
+                        <h3 class="text-center mb0_768">行业动态</h3>
+                        <h3 class="text-center mt0"><small>What’s New</small></h3>
                         <span class="line right-line"></span>
                     </div>
                     <div class="row pt50 twoNews">
@@ -25,7 +26,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="newsBox">
-                                        <h5 class="mt0 multiline"><a href="javascript:;" class="news-title" @click="toDetail(news.id)">{{news.title}}</a></h5>
+                                        <!-- <h5 class="mt0 multiline"><a href="javascript:;" class="news-title" @click="toDetail(news.id)">{{news.title}}</a></h5> -->
+                                        <h5 class="mt0 multiline"><a :href="news.articleUrl" class="news-title" target="_blank">{{news.title}}</a></h5>
                                         <p class="news-articel multiline" :title="news.summary">{{news.summary}}</p>
                                         <span class="news-time">{{news.time}}</span>
                                     </div>
@@ -36,11 +38,12 @@
                     <div class="fourNews">
                       <div class="row mt30">
                           <!-- 四条新闻标题 -->
-                          <div class="col-md-6" v-for="(news,index) in recentNews" :key="index" v-if="index>=2&&index<7">
+                          <div class="col-md-6" v-for="(news,index) in recentNews" :key="index" v-if="index>=2&&index<9">
                               <div class="newsInfo">
                                   <div class="row">
                                     <div class="col-md-10">
-                                      <p class="multiline newsInfo-title"><a href="javascript:;" class="newsInfo-detail" @click="toDetail(news.id)">{{"• "+news.title}}</a></p>
+                                      <!-- <p class="multiline newsInfo-title"><a href="javascript:;" class="newsInfo-detail" @click="toDetail(news.id)">{{"• "+news.title}}</a></p> -->
+                                      <p class="multiline newsInfo-title"><a :href="news.articleUrl" class="newsInfo-detail" target="_blank">{{"• "+news.title}}</a></p>
                                     </div>
                                     <div class="col-md-2">
                                       <span class="newsInfo-time">{{news.time}}</span>
@@ -53,8 +56,8 @@
                     <!-- 新闻移动端 -->
                     <news-info-m :showFourNews="recentNews" class="showInMobile mt20"></news-info-m>
                     <div class="row">
-                      <div class="col-md-12 text-right">
-                        <router-link :to="{path:'/news'}">更多&gt;&gt;</router-link>
+                      <div class="col-md-12 text-center">
+                        <router-link :to="{path:'/news'}" class="learnMore">查看更多</router-link>
                       </div>
                     </div>
                 </div>
@@ -72,8 +75,8 @@
                       <div class="row">
                         <div class="col-md-6">
                             <div class="activities-current animated fadeInLeft" v-for="currentEvent in activitiesCurrent" v-if="currentEvent.content06==currentSerialNum" :key="currentEvent.content06">
-                                <h1 class="activitiesTitle"><a href="javascript:;">{{currentEvent.content02}}</a></h1>
-                                <h1 class="activities-zh"><a href="javascript:;">{{currentEvent.content01}}</a></h1>
+                                <h1 class="activitiesTitle"><a :href="currentEvent.content07" target="_blank">{{currentEvent.content02}}</a></h1>
+                                <h1 class="activities-zh"><a :href="currentEvent.content07" target="_blank">{{currentEvent.content01}}</a></h1>
                                 <p class="activities-info">{{currentEvent.content03}}</p>
                                 <p class="activities-info bottomLine">{{currentEvent.content04}}</p>
                                 <p class="activities-article multiline">{{currentEvent.textcontent01}}</p>
@@ -83,8 +86,8 @@
                           <div class="othersActivities">
                             <div class="row">
                               <div class="col-md-6 col-xs-6 plpr0" v-for="(activities,index) in activitiesCurrent" @mouseenter="active(index)" :key="index">
-                                <a href="javascript:;">
-                                  <div class="othersBox" :class="'othersBox0'+(index+1)">
+                                <a :href="activities.content07" target="_blank">
+                                  <div class="othersBox" :class="'othersBox0'+(index+1)" :style="{'background-image':'url('+activities.content05+')'}">
                                     <!-- <div class="othersBox-bg"></div> -->
                                     <div class="othersBox-content">
                                       <p>{{activities.content01}}</p>
@@ -111,13 +114,17 @@
     import newsInfoM from '../components/index/newsInfo-M.vue'
     import recentEvent from '../components/index/recentEvent-M.vue'
     import bannerM from '../components/index/banner-M.vue'
+    // import wxShareInit from '../assets/js/weChatShare.js'
+    import wxShareInit from '../assets/js/weChatShare01.js'
+    import nsiProduct from '../components/index/nsiProduct.vue'
     var currentSerialNum=0;
     export default {
         components: {
            Banner,
            newsInfoM,
            recentEvent,
-           bannerM
+           bannerM,
+           nsiProduct
         },
         name: 'carrousel',
         data() {
@@ -126,7 +133,13 @@
                 recentNews:[],
                 // 当前活动文章
                 currentSerialNum:0,
-                activitiesCurrent:[]
+                activitiesCurrent:[],
+                wxShareInfo:{
+                    title:"新学说 | 国际学校多边服务平台",
+                    imgUrl:"https://data.xinxueshuo.cn/upImage/upInstitutionImg/100062/100062-logo.jpg",
+                    href:window.location.href,
+                    desc:"国际学校行业专家打造的多边媒体平台，以新媒体为载体、以行业研究为核心、以行业服务为平台"
+                }
             }
         },
         methods:{
@@ -137,6 +150,25 @@
             toDetail(id){
                 let routeData =this.$router.resolve({name:"detailNews",params:{id:id}})
                 window.open(routeData.href, '_blank');
+            },
+            // 微信分享
+        //     wxInit(){
+        //       this.axios({
+        //           method:"get",
+        //           url:'/Admin_api?whereFrom=WeChatShare&Callback=',
+        //           params:{
+        //               URL: window.location.href
+        //           }
+        //       }).then((res)=>{
+        //           wxShareInit.wxConfig(res)
+        //           wxShareInit.wxReady(this.wxShareInfo)
+        //       })
+        //   }
+        },
+        beforeMount(){
+            // 微信分享
+            if(wxShareInit.isWeixinBrowser()){
+                setTimeout(wxShareInit.wxReady(this.wxShareInfo),500)
             }
         },
         mounted(){
@@ -155,7 +187,7 @@
             // 最新动态
             const newsList = new URLSearchParams();
             newsList.append('pageNum', 1);
-            newsList.append('pageSize', 6);
+            newsList.append('pageSize', 8);
             this.axios({
                 method: 'post',
                 url: '/article/list.do',
@@ -173,6 +205,11 @@
     /* common */
     .showInMobile{
         display: none;
+    }
+    .hideInmobile{
+        @media (max-width:768px) {
+            display: none;
+        }
     }
     @media (max-width: 768px) {
         .showInMobile{
@@ -219,9 +256,16 @@
     }
     .indexPage-com{
       padding-top: 52px;
+      @mixin transitionAnimate{
+          -webkit-transition: all 0.3s ease 0s;
+          -ms-transition: all 0.3s ease 0s;
+          -o-transition: all 0.3s ease 0s;
+          transition: all 0.3s ease 0s;
+      }
       @media (max-width: 768px) {
         padding-top: 0;
         .mb0_768{
+            margin-top: 0;
             margin-bottom: 0;
             font-size: 21px;
         }
@@ -233,8 +277,28 @@
         }
       }
       .bannerM{
-          margin-top: 20px;
-          padding: 0 10px;
+          margin-top: 0;
+          padding: 0;
+        }
+    .learnMore{
+        display: inline-block;
+        color: #777;
+        padding: 4px 18px;
+        border-radius: 20px;
+        border: 1px solid #eee;
+        background-color: #eee;
+        margin-top: 30px;
+        @include transitionAnimate();
+        &:hover{
+            background: #dadada;
+            text-decoration: none;
+            color: #333;
+        }
+    }
+    }
+    .indexNews{
+        @media (max-width: 768px) {
+            padding-top: 50px !important;
         }
     }
     /* 最新动态 */
@@ -389,18 +453,18 @@
       opacity: 0.88;
       background-size: contain;
     }
-    .othersBox01{
-        background: url("../assets/img/index/othersBox01.jpg") no-repeat;
-    }
-    .othersBox02{
-        background: url("../assets/img/index/othersBox02.jpg") no-repeat;
-    }
-    .othersBox03{
-        background: url("../assets/img/index/othersBox03.jpg") no-repeat;
-    }
-    .othersBox04{
-        background: url("../assets/img/index/othersBox04.jpg") no-repeat;
-    }
+    // .othersBox01{
+    //     background: url("../assets/img/index/othersBox01.jpg") no-repeat;
+    // }
+    // .othersBox02{
+    //     background: url("../assets/img/index/othersBox02.jpg") no-repeat;
+    // }
+    // .othersBox03{
+    //     background: url("../assets/img/index/othersBox03.jpg") no-repeat;
+    // }
+    // .othersBox04{
+    //     background: url("../assets/img/index/othersBox04.jpg") no-repeat;
+    // }
     .othersBox-content{
       position: absolute;
       bottom: 15px;

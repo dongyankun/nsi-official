@@ -1,9 +1,9 @@
 <template>
     <div class="recentEvent-m-com">
         <div class="row">
-            <div class="col-xs-6" v-for="(event,index) in eventInfo" :class="'eventBox'+index">
-                <div class="eventBox" :style="{'background-image':'url('+event.content05+')'}">
-                    <div class="content-bg" >
+            <div class="col-xs-6" v-for="(event,index) in eventInfo" :class="'eventBox'+index" :key="index">
+                <div class="eventBox" :style="{'background-image':'url('+event.content05+')'}" @click="toDetail(event.content07)">
+                    <div class="content-bg">
                         <p class="eventName">{{event.content01}}</p>
                         <p class="time"><span>{{event.content03|formatStr}}</span></p>
                     </div>
@@ -22,6 +22,11 @@ export default {
     filters:{
         formatStr(str){
            return str != "null" ? str : ""
+        }
+    },
+    methods:{
+        toDetail(url){
+            window.open(url,"_blank")
         }
     }
 }

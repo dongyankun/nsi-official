@@ -10,19 +10,31 @@
                         <router-link tag="i" :to="{path:'/about'}">{{$t('layoutNav.aboutus')}}</router-link>
                     </div>
                     <div class="swiper-slide navSlide">
-                        <router-link tag="i" :to="{path:'/news'}">{{$t('layoutNav.information')}}</router-link>
+                        <router-link tag="i" :to="{path:'/news'}" >{{$t('layoutNav.information')}}</router-link>
                     </div>
                     <div class="swiper-slide navSlide">
                          <router-link tag="i" :to="{path:'/event'}">{{$t('layoutNav.event')}}</router-link>
                     </div>
-                    <div class="swiper-slide navSlide">
+                    <!-- <div class="swiper-slide navSlide">
                         <router-link tag="i" :to="{path:'/lotus'}">{{$t('layoutNav.lotus')}}</router-link>
-                    </div>
+                    </div> -->
                     <div class="swiper-slide navSlide">
                         <router-link tag="i" :to="{path:'/research'}">{{$t('layoutNav.research')}}</router-link>
                     </div>
                     <div class="swiper-slide navSlide">
                         <router-link tag="i" :to="{path:'/consulting'}">{{$t('layoutNav.consult')}}</router-link>
+                    </div>
+                    <div class="swiper-slide navSlide">
+                        <router-link tag="i" :to="{path:'/ges'}">{{$t('layoutNav.ges')}}</router-link>
+                    </div>
+                    <div class="swiper-slide navSlide">
+                        <router-link tag="i" :to="{path:'/vip'}">{{$t('layoutNav.vip')}}</router-link>
+                    </div>
+                    <div class="swiper-slide navSlide">
+                        <a href="http://data.xinxueshuo.cn" target="_blank">{{$t('layoutFooter.databaseM')}}</a>
+                    </div>
+                    <div class="swiper-slide navSlide">
+                        <a href="https://data.xinxueshuo.cn/nsi-class/index.html" target="_blank">{{$t('layoutFooter.classOnline')}}</a>
                     </div>
                 </div>
             </div>
@@ -35,11 +47,15 @@
                 <ul>
                     <router-link :to="{path:'/'}" tag="li" exact @click.native="hidePanel(0)">{{$t('layoutNav.index')}}</router-link>
                     <router-link :to="{path:'/about'}" tag="li" @click.native="hidePanel(1)">{{$t('layoutNav.aboutus')}}</router-link>
-                    <router-link :to="{path:'/news'}" tag="li" @click.native="hidePanel(2)">{{$t('layoutNav.information')}}</router-link>
+                    <router-link :to="{path:'/news'}" tag="li"  @click.native="hidePanel(2)">{{$t('layoutNav.information')}}</router-link>
                     <router-link :to="{path:'/event'}" tag="li" @click.native="hidePanel(3)">{{$t('layoutNav.event')}}</router-link>
-                    <router-link :to="{path:'/lotus'}" tag="li" @click.native="hidePanel(4)">{{$t('layoutNav.lotus')}}</router-link>
+                    <!-- <router-link :to="{path:'/lotus'}" tag="li" @click.native="hidePanel(4)">{{$t('layoutNav.lotus')}}</router-link> -->
                     <router-link :to="{path:'/research'}" tag="li" @click.native="hidePanel(5)">{{$t('layoutNav.research')}}</router-link>
                     <router-link :to="{path:'/consulting'}" tag="li" @click.native="hidePanel(6)">{{$t('layoutNav.consult')}}</router-link>
+                    <router-link :to="{path:'/ges'}" tag="li" @click.native="hidePanel(7)">{{$t('layoutNav.ges')}}</router-link>
+                    <router-link :to="{path:'/vip'}" tag="li" @click.native="hidePanel(8)">{{$t('layoutNav.vip')}}</router-link>
+                    <li><a style="color:#6e6e6e" href="http://data.xinxueshuo.cn" target="_blank">{{$t('layoutFooter.databaseM')}}</a></li>
+                    <li><a style="color:#6e6e6e" href="https://data.xinxueshuo.cn/nsi-class/index.html" target="_blank">{{$t('layoutFooter.classOnline')}}</a></li>
                 </ul>
             </div>
         </transition>
@@ -53,7 +69,7 @@ export default {
         return{
             activeNav:0,
             openMore:false,
-            layoutNav:[this.$t('layoutNav.index'),this.$t('layoutNav.aboutus'),this.$t('layoutNav.information'),this.$t('layoutNav.event'),this.$t('layoutNav.lotus'),this.$t('layoutNav.research'),this.$t('layoutNav.researchChild.magazine'),this.$t('layoutNav.researchChild.report'),this.$t('layoutNav.researchChild.pisom'),this.$t('layoutNav.researchChild.classOnline'),,this.$t('layoutNav.consult')],
+            layoutNav:[this.$t('layoutNav.index'),this.$t('layoutNav.aboutus'),this.$t('layoutNav.information'),this.$t('layoutNav.event'),this.$t('layoutNav.lotus'),this.$t('layoutNav.research'),this.$t('layoutNav.researchChild.magazine'),this.$t('layoutNav.researchChild.report'),this.$t('layoutNav.researchChild.pisom'),this.$t('layoutNav.researchChild.classOnline'),this.$t('layoutNav.consult'),this.$t('layoutNav.ges'),this.$t('layoutNav.vip'),this.$t('layoutFooter.database'),this.$t('layoutFooter.classOnline'),this.$t('layoutFooter.databaseM')],
         }
     },
     methods:{
@@ -65,13 +81,13 @@ export default {
                 freeModeMomentumRatio : 5,
                 freeModeMomentum:true,
                 freeModeMomentumBounce:false,
-                // width:95,
+                // width:100,
                 slidesPerView : 4,
                 slideToClickedSlide: true,
                 // centeredSlides: true,
                 resistanceRatio:0.7,
-                // slidesOffsetBefore:-60,
-                // initialSlide :1,
+                observer:true,//修改swiper自己或子元素时，自动初始化swiper
+                observeParents:true,//修改swiper的父元素时，自动初始化swiper
                 on:{
                     slideChangeTransitionStart:function(swiper){
                         _this.activeNav=this.realIndex
@@ -194,7 +210,7 @@ export default {
                     text-align: center;
                     height: 30px;
                     line-height: 30px;
-                    color: #0d0d0d;
+                    color: #6e6e6e;
                     border-radius: 2px;
                     margin-bottom: 30px;
                     margin-right: 10px;

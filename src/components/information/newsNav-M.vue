@@ -1,22 +1,30 @@
 <template>
     <div class="newsnav-m-com">
         <div class="container-fluid">
+            <div class="text-center" style="margin-bottom:30px;">
+                <!-- <a class="visBanner" href="http://data.xinxueshuo.cn/nsi-event/event/vis2018/visM.html" target="_blank">
+                <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/VIS-ADBanner.jpg" alt="" style="display:inline-block;max-width:100%;height:auto;">
+                </a> -->
+            </div>
             <div class="swiper-container swiperM" id="newsSwiperM">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide navSlide">
-                        <router-link tag="i" to=/news/newestArticle>资讯全览</router-link>
+                        <router-link tag="i" to=/news/latest>{{$t('news.overviewNews')}}</router-link>
                     </div>
                     <div class="swiper-slide navSlide">
-                        <router-link tag="i" to="/news/policy">政策解读</router-link>
+                        <router-link tag="i" to="/news/policy">{{$t('news.policyNews')}}</router-link>
                     </div>
                     <div class="swiper-slide navSlide">
-                        <router-link tag="i" to="/news/visitSchool">访校观察</router-link>
+                        <router-link tag="i" to="/news/visitSchool">{{$t('news.schoolNews')}}</router-link>
                     </div>
                     <div class="swiper-slide navSlide">
-                        <router-link tag="i" to=/news/original>行业分析</router-link>
+                        <router-link tag="i" to=/news/original>{{$t('news.tmtNews')}}</router-link>
                     </div>
                     <div class="swiper-slide navSlide">
-                        <router-link tag="i" to=/news/interview>人物访谈</router-link>
+                        <router-link tag="i" to=/news/interview>{{$t('news.personNews')}}</router-link>
+                    </div>
+                    <div class="swiper-slide navSlide">
+                        <router-link tag="i" to=/news/histroy>{{$t('news.oldNews')}}</router-link>
                     </div>
                 </div>
             </div>
@@ -30,6 +38,7 @@ export default {
     data(){
         return{
             activeNav:0,
+             news:[this.$t('news.overviewNews'),this.$t('news.policyNews'),this.$t('news.schoolNews'),this.$t('news.tmtNews'),this.$t('news.personNews'),this.$t('news.oldNews')]
         }
     },
     methods:{
@@ -88,6 +97,10 @@ export default {
                 color: $official-color;
                 border-bottom: 2px solid $official-color;
             }
+        }
+        // visBanner
+        .visBanner{
+            box-shadow: 0 3px 10px #ccc;
         }
     }
 </style>

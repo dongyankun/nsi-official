@@ -1,73 +1,78 @@
 <template>
     <div class="eventBanner-com">
         <!-- banner -->
-        <!-- <div class="container"> -->
-            <swiper :options="swiperOption" ref="mySwiper" class="swipercontainer">
-                <!-- slides -->
-                <swiper-slide class="bg">
-                    <img src="../../assets/img/event/eventBanner03.jpg" alt="" class="img-responsive">
-                </swiper-slide>
-                <swiper-slide class="bg">
-                    <img src="../../assets/img/event/eventBanner02.jpg" alt="" class="img-responsive">
-                </swiper-slide>
-                <swiper-slide class="bg">
-                    <img src="../../assets/img/event/eventBanner01.jpg" alt="" class="img-responsive">
-                </swiper-slide>
-                <swiper-slide class="bg">
-                    <img src="../../assets/img/event/eventBanner04.jpg" alt="" class="img-responsive">
-                </swiper-slide>
-                <div class="swiper-pagination"  slot="pagination"></div>
-                <div class="swiper-button-prev" slot="button-prev">‹</div>
-                <div class="swiper-button-next" slot="button-next">›</div>
-            </swiper>
-        <!-- </div> -->
+        <div class="swiper-container" id="eventBanner">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" v-for="(bannerInfos,item) in bannerInfo" :key="item">
+                    <img :src="bannerInfos.coverImage" alt="" class="img-responsive">
+                </div>
+            </div>
+            <div class="swiper-pagination"  slot="pagination"></div>
+            <div class="swiper-button-prev" slot="button-prev"><span class="iconfont icon-arrow-left"></span></div>
+            <div class="swiper-button-next" slot="button-next"><span class="iconfont icon-youjiantou"></span></div>
+        </div>
     </div>
 </template>
 
 <script>
 import 'swiper/dist/css/swiper.css'
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import Swiper from 'swiper'
 export default {
-    components: {
-        swiper,
-        swiperSlide
-    },
-    name: 'carrousel',
     data () {
       return {
-        // 轮播
-        swiperOption: {
-            notNextTick: true,
-            autoplay: {
-                delay:5000,
-                disableOnInteraction: false,
-            },
-            speed:1000,
-            loop: true,
-            // spaceBetween: 30,
-            grabCursor : true,
-            effect: 'coverflow',
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            }
-        },
+          bannerInfo:[
+        //   {
+        //       coverImage:require('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/event/eventBanner01.jpg')
+        //   },
+          {
+              coverImage:'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/event/eventBanner03.jpg'
+          }]
       }
     },
-    computed:{
-      swiper(){
-        // var swiper01=this.$refs.mySwiper.swiper;
-        // return swiper01
-        return this.$refs.mySwiper.swiper;
-      }
+    methods:{
+        getBannerInfo(){
+            this.axios({
+                method: 'get',
+                url: '/manager/official/list.do',
+                params:{
+                    type:"官网会议活动"
+                }
+            }).then((res)=>{
+                const msg=res.data.data
+                // console.log(msg)
+                // this.bannerInfo=msg
+                this.$nextTick(()=>{
+                    this.swiperInit()
+                })
+            })
+        },
+        swiperInit(){
+            const self=this
+            new Swiper('#eventBanner', {
+                 notNextTick: true,
+                 autoplay: {
+                    delay:3000,
+                    disableOnInteraction: false,
+                },
+                loop: true,
+                effect : 'fade',
+                speed:600,
+                grabCursor : true,
+                // 如果需要分页器
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            })
+        }
     },
     mounted(){
-    //    console.log("每次切换都会触发我");
-    //    this.swiper.slideTo(0,1000, false);
+        // this.getBannerInfo()
+        this.swiperInit()
     }
 }
 </script>
@@ -88,7 +93,7 @@ export default {
         .swiper-button-next{
             width:60px;
             height: 60px;
-            line-height: 52px;
+            line-height: 40px;
             text-align: center;
             border-radius: 50%;
             color: #222;
@@ -99,12 +104,26 @@ export default {
             &:hover{
             opacity: .9;
             }
+            @media (max-width: 768px) {
+                width: 40px !important;
+                height: 40px !important;
+                line-height: 25px;
+                font-size: 40px;
+                outline: none;
+                opacity: .8;
+            }
         }
         .swiper-button-prev{
             left: 50px;
+            @media (max-width: 768px) {
+              left: 20px;
+            }
         }
         .swiper-button-next{
             right: 50px;
+            @media (max-width: 768px) {
+              right: 20px;
+            }
         }
         .swiper-pagination-bullet-active{
             background: #FFF;

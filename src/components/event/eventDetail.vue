@@ -73,6 +73,9 @@ export default {
     .eventDetail-com{
         padding: 0 150px;
         padding-top: 52px;
+        @media (max-width: 768px) {
+            padding: 0;
+        }
         img{
             display: inline-block;
             max-width: 100%;
@@ -80,11 +83,17 @@ export default {
         }
         .pt50{
             padding-top: 50px;
+            @media (max-width: 768px) {
+                padding-top: 15px;
+            }
         }
         .newsDetail-title{
             padding-bottom: 30px;
             border-bottom: 1px solid #d5d5d5;
             margin-bottom: 30px;
+            @media (max-width:768px) {
+                text-align: left !important;
+            }
         }
         .news-content{
             .newsDetail-img{
@@ -94,7 +103,10 @@ export default {
                 font-size: 15px;
                 line-height: 1.75;
                 color: #6e6e6e;
-                text-indent: 32px;
+                background-color: #fafafa;
+                padding: 20px 15px;
+                border-left: 5px solid #6e6e6e;
+                // text-indent: 32px;
             }
             .news-info{
                 line-height: 1.1;
@@ -121,7 +133,7 @@ export default {
                 p{
                     margin-bottom: 20px;
                     margin-top: 10px;
-                    text-indent: 35px;
+                    // text-indent: 35px;
                 }
             }
         }

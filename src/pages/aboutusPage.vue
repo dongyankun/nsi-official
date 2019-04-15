@@ -16,8 +16,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div>
-                            <h3>关于&nbsp;新学说</h3>
-                            <h3><small>  北京新学说文化传媒有限公司是由国际学校行业专家共同打造的多边媒体平台，以新媒体为载体、以行业研究为核心、以行业服务为平台。自成立以来一直致力于中国国际学校行业研究，对于中国国际学校有着深刻的了解。到目前为止，新学说已在自有媒体上发表了近千篇行业原创文章，十多本深度行业报告，并为多家学校提供了详细的市场、运营、建设方案，受到业内人士和单位的高度认可。</small></h3>
+                            <h3>{{$t('aboutus.aboutNSI')}}</h3>
+                            <h3><small>{{$t('aboutus.aboutNSIContent')}}</small></h3>
                         </div>
                     </div>
                 </div>
@@ -28,14 +28,12 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="team-nsi">
-                            <h3>团队介绍</h3>
+                            <h3>{{$t('aboutus.team')}}</h3>
                         </div>
-                        <p class="team-info">
-                            新学说 团队由众多位独特且富有才华的成员组成，致力于为数所国际学校提供全方位服务。努力将研究成果转化为实际可操作方案，为国际学校提供各种咨询式服务，例如前期建校咨询，课程设计，市场策划。
-                        </p>
+                        <p class="team-info">{{$t('aboutus.teamContent')}}</p>
                     </div>
                     <div class="col-md-6 text-center">
-                        <img alt="" src="../assets/img/about/team-img.jpg" class="team-img img-responsive" width="500">
+                        <img alt="" src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/about/team-img.jpg" class="team-img img-responsive" width="500">
                     </div>
                 </div>
             </div>
@@ -44,43 +42,43 @@
             <div class="container nsi-cooperation">
                 <div class="row">
                     <div class="col-md-6">
-                        <h3>合作伙伴</h3>
+                        <h3>{{$t('aboutus.partner')}}</h3>
                     </div>
                     <div class="col-md-6">
-                        <h3 class="coo-info"><small>新学说自创办以来，为数百个家喻户晓的品牌提供了深度定制的推广策略，始终专注于高质量的内容传播和创新的宣传服务。</small></h3>
+                        <h3 class="coo-info"><small>{{$t('aboutus.partnerContent')}}</small></h3>
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row coo-logo">
                     <div class="col-md-2 col-xs-6">
-                        <a href="http://www.brightscholar.com" target="_" title="博实乐教育集团">
-                            <img src="http://data.xinxueshuo.cn/upImage/upInstitutionImg/100099/100099-logo.jpg" alt="" width="120">
+                        <a href="http://www.brightscholar.com" target="_blank" title="博实乐教育集团">
+                            <img src="https://data.xinxueshuo.cn/upImage/upInstitutionImg/100099/100099-logo.jpg" alt="" width="120">
                         </a>
                     </div>
                     <div class="col-md-2 col-xs-6">
-                        <a href="http://www.schoolis.cn" target="_" title="校宝智慧校园">
-                            <img src="http://data.xinxueshuo.cn/upImage/upInstitutionImg/100046/100046-logo.jpg" alt="" width="120">
+                        <a href="http://www.schoolis.cn" target="_blank" title="校宝智慧校园">
+                            <img src="https://data.xinxueshuo.cn/upImage/upInstitutionImg/100046/100046-logo.jpg" alt="" width="120">
                         </a>
                     </div>
                     <div class="col-md-2 col-xs-6">
-                        <a href="http://www.ourschoolbus.com.cn" target="_" title="起点校车">
-                            <img src="http://data.xinxueshuo.cn/upImage/upInstitutionImg/100043/100043-logo.jpg" alt="" width="120">
+                        <a href="http://www.ourschoolbus.com.cn" target="_blank" title="起点校车">
+                            <img src="https://data.xinxueshuo.cn/upImage/upInstitutionImg/100043/100043-logo.jpg" alt="" width="120">
                         </a>
                     </div>
                     <div class="col-md-2 col-xs-6">
-                        <a href="http://www.casio.com.cn/index.html?from=skqs" target="_" title="卡西欧（中国）贸易有限公司">
-                            <img src="http://data.xinxueshuo.cn/upImage/upInstitutionImg/100181/100181-logo.jpg" alt="" width="180">
+                        <a href="http://www.casio.com.cn/index.html?from=skqs" target="_blank" title="卡西欧（中国）贸易有限公司">
+                            <img src="https://data.xinxueshuo.cn/upImage/upInstitutionImg/100181/100181-logo.jpg" alt="" width="180">
                         </a>
                     </div>
                     <div class="col-md-2 col-xs-6">
                         <a href="javascript:;" title="北京市君诚国际双语学校">
-                            <img src="http://data.xinxueshuo.cn/upImage/upSchoolImg/100742/100742-logo.jpg" alt="" width="100">
+                            <img src="https://data.xinxueshuo.cn/upImage/upSchoolImg/100742/100742-logo.jpg" alt="" width="100">
                         </a>
                     </div>
                     <div class="col-md-2 col-xs-6">
-                        <a href="http://www.chinahtedu.com" target="_" title="北京汉通文化有限责任公司">
-                            <img src="http://data.xinxueshuo.cn/upImage/upInstitutionImg/100163/100163-logo.jpg" alt="" width="120">
+                        <a href="http://www.chinahtedu.com" target="_blank" title="北京汉通文化有限责任公司">
+                            <img src="https://data.xinxueshuo.cn/upImage/upInstitutionImg/100163/100163-logo.jpg" alt="" width="120">
                         </a>
                     </div>
                 </div>
@@ -90,13 +88,13 @@
             <div class="container aboutus">
                 <div class="row">
                     <div class="col-md-6">
-                        <h3>联系我们</h3>
+                        <h3>{{$t('aboutus.connectUs')}}</h3>
                     </div>
                     <div class="col-md-6">
-                        <p>联系电话：010-52468286</p>
-                        <p>手机：15010927730</p>
-                        <p>邮箱：info@xinxueshuo.cn</p>
-                        <p>地址：北京市西城区新风街2号天成科技大厦A座1006</p>
+                        <p>{{$t('layoutFooter.tel')}}</p>
+                        <p>{{$t('layoutFooter.phone')}}</p>
+                        <p>{{$t('layoutFooter.email')}}</p>
+                        <p>{{$t('layoutFooter.address')}}</p>
                     </div>
                 </div>
             </div>
@@ -105,10 +103,23 @@
 </template>
 
 <script>
+import wxShareInit from '../assets/js/weChatShare01.js'
 export default {
     data(){
         return{
-            aboutus:[this.$t('aboutus.mission'),this.$t('aboutus.missionContent')]
+            aboutus:[this.$t('aboutus.mission'),this.$t('aboutus.missionContent'),this.$t('aboutus.aboutNSI'),this.$t('aboutus.aboutNSIContent'),this.$t('aboutus.team'),this.$t('aboutus.teamContent'),this.$t('aboutus.partner'),this.$t('aboutus.partnerContent'),this.$t('aboutus.connectUs'),this.$t('layoutFooter.tel'),this.$t('layoutFooter.email'),this.$t('layoutFooter.phone'),this.$t('layoutFooter.address')],
+            wxShareInfo:{
+                  title:"新学说 | 国际学校多边服务平台",
+                  imgUrl:"https://data.xinxueshuo.cn/upImage/upInstitutionImg/100062/100062-logo.jpg",
+                  href:window.location.href,
+                  desc:"国际学校行业专家打造的多边媒体平台，以新媒体为载体、以行业研究为核心、以行业服务为平台"
+              }
+        }
+    },
+    beforeMount(){
+         // 微信分享
+        if(wxShareInit.isWeixinBrowser()){
+            setTimeout(wxShareInit.wxReady(this.wxShareInfo),500)
         }
     }
 }
@@ -141,7 +152,7 @@ export default {
         .about-bg{
             width: 100%;
             height: 550px;
-            background-image: url("../assets/img/about/about.jpg");
+            background-image: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/about/about.jpg");
             background-size: 100%;
             background-position: center;
             position: relative;

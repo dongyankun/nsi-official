@@ -5,11 +5,11 @@
             <li v-for="list in newsList">
                 <i class="iconfont icon-arrfill_u-copy"></i>
                 <a href="javascript:;" @click="toDetail(list.id)">{{list.title}}</a>
-                <div class="time">{{list.updateTime|formatDate}}
+                <div class="time">{{list.createTime|formatDate}}
                     <div class="shareTo">分享至：
                         <el-popover placement="bottom-end" title="打开微信 “扫一扫”" width="190" trigger="hover" content="微信二维码">
-                            <img width="150" :src="'http://qr.liantu.com/api.php?text='+list.articleUrl" alt="">
-                            <span slot="reference" title="分享到微信" class="iconfont icon-weixin weiChat"></span>
+                            <img width="150" :src="weixinQRcode" alt="">
+                            <span slot="reference" title="分享到微信" class="iconfont icon-weixin weiChat" @mouseenter="addUrl(list.articleUrl)"></span>
                         </el-popover>
                         <span @click="shareWibo(list.articleUrl,list.title,list.coverImage)" title="分享到微博" class="iconfont icon-weibo2 weibo"></span>
                     </div>
@@ -24,7 +24,8 @@ export default {
     data(){
         return{
             pageNum:1,
-            newsList:[]
+            newsList:[],
+            weixinQRcode: ""
         }
     },
     filters:{
@@ -59,7 +60,14 @@ export default {
         shareWibo(url,title,picurl){
             let sharesinastring='http://v.t.sina.com.cn/share/share.php?title='+title+'&url='+url+'&content=utf-8&sourceUrl='+url+'&pic='+picurl;
             window.open(sharesinastring,'newwindow','height=400,width=400,top=100,left=100');
-        }
+        },
+        addUrl(url) {
+            // alert(url)
+            // this.weixinQRcode = 'https://www.kuaizhan.com/common/encode-png?large=true&data=' + url
+            let _url=url.split('https')[1]
+            let currentUrl='http'+_url
+            this.weixinQRcode = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + currentUrl
+        },
     },
     beforeMount(){
         const params = new URLSearchParams();
@@ -111,9 +119,10 @@ export default {
             margin-bottom: 7.5px;
             padding-bottom: 7.5px;
             border-bottom: 1px solid #eee;
+            position: relative;
             i{
                 position: absolute;
-                left: 10px;
+                left: -3px;
                 color: #366df0;
                 font-weight: 800;
                 font-size: 15px;
@@ -134,6 +143,9 @@ export default {
             margin: 5px 0 0;
             font-size: 13px;
             position: relative;
+            @media (max-width: 768px) {
+                display: none;
+            }
             .shareTo{
                 position: absolute;
                 right: 0;

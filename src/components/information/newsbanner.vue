@@ -1,29 +1,38 @@
 <template>
     <div class="newsbanner-com">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8">
+            <div class="row" style="position:relative">
+                <div class="col-md-8 newsPic">
                     <div class="newsbanner">
                         <div class="swiper-container" id="newsbanner">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide" v-for="(bannerInfos,item) in bannerInfo" :key="item">
-                                    <img :src="bannerInfos.coverImage" alt="" class="img-responsive" @click="toDetail(bannerInfos.id)">
+                                    <img :src="bannerInfos.coverImage" alt="" class="img-responsive" @click="toDetail(bannerInfos.articleUrl)">
                                 </div>
                             </div>
                             <div class="swiper-pagination"  slot="pagination"></div>
-                            <div class="swiper-button-prev" slot="button-prev">‹</div>
-                            <div class="swiper-button-next" slot="button-next">›</div>
+                            <div class="swiper-button-prev" slot="button-prev"><span class="iconfont icon-arrow-left"></span></div>
+                            <div class="swiper-button-next" slot="button-next"><span class="iconfont icon-youjiantou"></span></div>
                         </div>
                          <div class="slide-bar">
-                            <p class="slidebar2"><span>新</span> 闻头条</p>
+                            <p class="slidebar2"><span class="bigWord">{{$t('news.newsOne')}}</span><br/><span>{{$t('news.newsTwo')}}</span><br/><span>{{$t('news.newsThree')}}</span><br/><span>{{$t('news.newsFour')}}</span></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
+                    <div class="skeleton skeleton-title" id="skeleton" ref="skeleton">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+                    <div class="skeleton skeleton-desc">
+                        <p></p>
+                        <p></p>
+                    </div>
                     <div class="newsInfo animated fadeIn" v-for="(bannerInfos,index) in bannerInfo" :key="index" v-if="index==newsBannerIndex">
-                        <h3><a href="javascript:;" class="newsInfo-title" @click="toDetail(bannerInfos.id)">{{bannerInfos.title}}</a></h3>
+                        <h3><a href="javascript:;" class="newsInfo-title" @click="toDetail(bannerInfos.articleUrl)">{{bannerInfos.title}}</a></h3>
                         <p class="newsInfo-desc">{{bannerInfos.summary}}</p>
-                        <a href="javascript:;" @click="toDetail(bannerInfos.id)" class="news-detail">阅读全文</a>
+                        <a href="javascript:;" @click="toDetail(bannerInfos.articleUrl)" class="news-detail">阅读全文</a>
                     </div>
                 </div>
             </div>
@@ -34,19 +43,22 @@
 <script>
 import 'swiper/dist/css/swiper.css'
 import Swiper from 'swiper'
+import { setTimeout } from 'timers';
 
 export default {
     data () {
         return {
         newsBannerIndex:0,
-        bannerInfo:[]
+        bannerInfo:[],
+        news:[this.$t('news.newsOne'),this.$t('news.newsTwo'),this.$t('news.newsThree'),this.$t('news.newsFour'),this.$t('news.overviewNews'),this.$t('news.policyNews'),this.$t('news.schoolNews'),this.$t('news.tmtNews'),this.$t('news.personNews')]
       }
     },
     methods:{
-        toDetail(id){
+        toDetail(href){
             // console.log(id)
-            let routeData =this.$router.resolve({name:"detailNews",params:{id:id}})
-            window.open(routeData.href, '_blank');
+            // let routeData =this.$router.resolve({name:"detailNews",params:{id:id}})
+            // window.open(routeData.href, '_blank');
+            window.open(href, '_blank');
         },
         getBannerInfo(){
             const newsBanner = new URLSearchParams();
@@ -58,9 +70,12 @@ export default {
                 data: newsBanner
             }).then((res)=>{
                 const msg=res.data.data.list
-                // console.log(msg)
                 this.bannerInfo=msg
                 this.$nextTick(()=>{
+                    var skeletonList= document.getElementsByClassName("skeleton")
+                    for(var i=0;i<skeletonList.length;i++){
+                        skeletonList[i].style.display='none'
+                    }
                     this.swiperInit()
                 })
             })
@@ -70,7 +85,7 @@ export default {
             new Swiper('#newsbanner', {
                  notNextTick: true,
                  autoplay: {
-                    delay:3000,
+                    delay:5000,
                     disableOnInteraction: false,
                 },
                 loop: true,
@@ -104,13 +119,52 @@ export default {
 
 <style lang="scss">
      $official-color: #20528f;
+     $nationDay-Color:#ce1922;
+     $nationDay-hoverColor:#c44d53;
      $newsBanner-bg:linear-gradient(-180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.37) 100%);
     .newsbanner-com{
+        .skeleton-title{
+            margin-top: 25px;
+            p{
+                width: 100%;
+                height: 27px;
+                background-color: #eee;
+                &:last-of-type{
+                    width: 40%;
+                }
+            }
+        }
+        .skeleton-desc{
+            margin-top: 30px;
+            p{
+                width: 100%;
+                height: 15px;
+                background-color: #eee;
+                &:last-of-type{
+                    width: 40%;
+                }
+            }
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
+        .newsPic{
+            @media (max-width: 768px) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
         .newsbanner{
             overflow: hidden;
             border-radius: 2px;
             transition: all .3s;
             box-shadow: 0 12px 24px 0 rgba(7, 17, 27, 0.4);
+            min-height: 400px;
+            background-color: #eee;
+            @media (max-width: 768px) {
+                min-height: 200px;
+                box-shadow: none;
+            }
             &:hover .swiper-button-prev,
             &:hover .swiper-button-next{
               opacity: .4;
@@ -119,7 +173,7 @@ export default {
             .swiper-button-next{
               width:60px !important;
               height: 60px !important;
-              line-height: 52px;
+              line-height: 38px;
               text-align: center;
               border-radius: 50%;
               color: #222;
@@ -134,9 +188,10 @@ export default {
               @media (max-width: 768px) {
                   width: 40px !important;
                   height: 40px !important;
-                  line-height: 35px;
+                  line-height: 25px;
                   font-size: 40px;
                   outline: none;
+                  opacity: .8 !important;
               }
             }
             .swiper-pagination-bullet-active{
@@ -151,6 +206,7 @@ export default {
                 align-items: flex-end;
                 justify-content: center;
                 flex-direction: column;
+                z-index: 999;
                 .slidebar1{
                     font-size: 14px;
                     color: #999999;
@@ -166,7 +222,7 @@ export default {
                     line-height: 28px;
                     text-align: center;
                     margin-bottom: 0;
-                    span{
+                    span.bigWord{
                       display: inline-block;
                       color: $official-color;
                       font-size: 45px;
@@ -185,6 +241,8 @@ export default {
         }
         // 新闻标题
         .newsInfo{
+            position: relative;
+            z-index: 999;
             .newsInfo-title{
                 color: #333;
                 font-weight: 700;

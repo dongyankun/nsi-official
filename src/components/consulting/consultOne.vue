@@ -1,7 +1,7 @@
 <template>
     <div class="consuleMain">
-        <div class="banner">
-            <img src="../../assets/img/consulting/banner_M.jpg" alt="">
+        <div class="banner text-center">
+            <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/banner_M.jpg" alt="">
         </div>  
         <div class="item">
             <h3>新学说咨询</h3>
@@ -13,12 +13,12 @@
                 <p>Estabilshing an International School</p>
                 <ul>
                     <li>
-                        <div><img src="../../assets/img/consulting/consult.png"  alt="解决方案"></div>
+                        <div><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/consult.png"  alt="解决方案"></div>
                         <p>新校创建整体解决方案</p>
                         <p>Turnkey Solutions for New Schools</p>
                     </li>
                     <li>
-                        <div><img src="../../assets/img/consulting/consult2.png"  alt="商业计划"></div>
+                        <div><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/consult2.png"  alt="商业计划"></div>
                         <p>市场可行性研究与商业计划</p>
                         <p>Feasibility Study & Business Plan</p>
                     </li>
@@ -29,12 +29,12 @@
                 <p>Strategic Consulting</p>
                 <ul>
                     <li>
-                        <div><img src="../../assets/img/consulting/tactic.png" alt="解决方案"></div>
+                        <div><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/tactic.png" alt="解决方案"></div>
                         <p>市场进入战略</p>
                         <p>Market Entry</p>
                     </li>
                     <li>
-                        <div><img src="../../assets/img/consulting/tactic2.png"  alt="商业计划"></div>
+                        <div><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/tactic2.png"  alt="商业计划"></div>
                         <p>战略规划</p>
                         <p>Strategic Planning</p>
                     </li>
@@ -45,28 +45,28 @@
                 <p>Operation Management Consulting</p>
                 <ul>
                     <li>
-                        <div><img src="../../assets/img/consulting/business.png" alt="解决方案"></div>
+                        <div><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/business.png" alt="解决方案"></div>
                         <p>学校运营管理</p>
                         <p>School Operation Management</p>
                     </li>
                     <li>
-                        <div><img src="../../assets/img/consulting/business2.png"  alt="商业计划"></div>
+                        <div><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/business2.png"  alt="商业计划"></div>
                         <p>机构评估</p>
                         <p>Institutional Accreditation  and Assessment</p>
                     </li>
                 </ul>
             </div>
-            <img src="../../assets/img/consulting/consult3.jpg" alt="战略合作">
+            <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/consult3.jpg" alt="战略合作">
             <div class="itemBottom">
                 <h4>战略合作</h4>
                 <p>Strategic Cooperation</p>
             </div>
-            <img src="../../assets/img/consulting/tactic3.jpg" alt="战略合作">
+            <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/tactic3.jpg" alt="战略合作">
             <div class="itemBottom">
                 <h4>市场调研</h4>
                 <p>Market Reserch</p>
             </div>
-            <img src="../../assets/img/consulting/business3.jpg" alt="战略合作">
+            <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/business3.jpg" alt="战略合作">
             <div class="itemBottom">
                 <h4>领导层猎聘与辅导</h4>
                 <p>Headhunting and Executive Coaching</p>

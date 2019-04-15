@@ -1,7 +1,7 @@
 <template>
     <div class="consuleMain">
         <div class="banner">
-            <img src="../../assets/img/consulting/solution.jpg" alt="">
+            <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/solution.jpg" alt="">
         </div>  
         <div class="item">
             <h3>解决方案</h3>
@@ -10,17 +10,17 @@
             <div class="mySteps">
               <ul>
                 <li>
-                    <div class="stepImg"><img src="../../assets/img/consulting/solution1.png"></div>
+                    <div class="stepImg"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/solution1.png"></div>
                     <span>前期沟通(Communication)</span>
                     <div class="description"></div>
                 </li>
                 <li>
-                    <div class="stepImg"><img src="../../assets/img/consulting/solution2.png"></div>
+                    <div class="stepImg"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/solution2.png"></div>
                     <span>签单立项(Contract Execution)</span>
                     <div class="description"></div>
                 </li>
                 <li>
-                    <div class="stepImg"><img src="../../assets/img/consulting/solution3.png"></div>
+                    <div class="stepImg"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/solution3.png"></div>
                     <span>调研阶段(Research Stage)</span>
                     <div class="description" style="height:120px;">
                         <p>桌面调研(Desk - Top Research)</p>
@@ -30,22 +30,22 @@
                     </div>
                 </li>
                 <li>
-                    <div class="stepImg"><img src="../../assets/img/consulting/solution4.png"></div>
+                    <div class="stepImg"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/solution4.png"></div>
                     <span>数据分析(Data Analysis)</span>
                     <div class="description" style="height:70px;"><p>定量数据(Quantitative Data)</p><p>定性数据(Qualitative Data)</p></div>
                 </li>
                 <li>
-                    <div class="stepImg"><img src="../../assets/img/consulting/solution5.png"></div>
+                    <div class="stepImg"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/solution5.png"></div>
                     <span>项目建议(Project Advices)</span>
                     <div class="description"></div>
                 </li>
                 <li>
-                    <div class="stepImg"><img src="../../assets/img/consulting/solution6.png"></div>
+                    <div class="stepImg"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/solution6.png"></div>
                     <span>执行方案(Implementati on Plans)</span>
                     <div class="description"></div>
                 </li>
                  <li>
-                    <div class="stepImg"><img src="../../assets/img/consulting/solution7.png"></div>
+                    <div class="stepImg"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/consulting/solution7.png"></div>
                     <span>培训项目(Follow-up Training Projects)</span>
                     <div class="description" style="border:none;"></div>
                 </li>

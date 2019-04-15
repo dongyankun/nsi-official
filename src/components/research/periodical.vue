@@ -5,54 +5,17 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="internal">
-                        <h1 class="title">内参<span class="year">2017</span></h1>
+                        <!-- <h1 class="title">内参<span class="year">2017</span></h1> -->
+                        <h1 class="title">内参</h1>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3 col-xs-6" v-for="(list,index) in internalReferList">
+                <div class="col-md-3 col-xs-6" v-for="(list,index) in internalReferList" :key="index">
                     <div class="internalRefer-book">
                             <a href="javascript:;" @click="toDownload(list.fileUrl)" class="internalRefer-box" slot="reference" :style="{'background-image':'url('+list.imageUrl+')'}">
                             </a>
                         <h4 :title="list.bookName" class="bookName" @click="openTips">{{list.fileName.split(".")[0]}}</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="internal">
-                        <h1 class="title">内参<span class="year">2016</span></h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-3 col-xs-6" v-for="(list,index) in internalReferList">
-                    <div class="internalRefer-book">
-                        <a href="javascript:;" class="internalRefer-box">
-
-                        </a>
-                        <h4 :title="list.bookName" class="bookName">{{list.bookName}}</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- 报告 -->
-         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="internal">
-                        <h1 class="title">报告<span class="year">2017</span></h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 col-xs-6" v-for="(report,index) in reportList">
-                    <div class="internalRefer-book">
-                        <a href="javascript:;" class="internalRefer-box">
-
-                        </a>
-                        <h4 :title="report.bookName" class="bookName">{{report.bookName}}</h4>
                     </div>
                 </div>
             </div>
@@ -66,26 +29,7 @@ export default {
         return{
              pageNum:1,
             // 内参
-            internalReferList:[],
-            // 报告
-            reportList:[
-                {
-                    bookName:"报告1",
-                    imgSrc:""
-                },
-                {
-                    bookName:"报告2",
-                    imgSrc:""
-                },
-                {
-                    bookName:"报告3",
-                    imgSrc:""
-                },
-                {
-                    bookName:"报告4",
-                    imgSrc:""
-                }
-            ]
+            internalReferList:[] 
         } 
     },
     methods:{
@@ -99,14 +43,40 @@ export default {
         const h = this.$createElement;
         this.$notify({
                 title: '温馨提示',
-                message: h('i', { style: 'color: teal'}, '点击书面即可下载期刊&报告电子版'),
+                message: h('i', { style: 'color: #20528f'}, '点击书面即可下载'),
                 offset: 150,
                 type:'info',
-                duration:10000
+                duration:3000
             });
         },
+        // 判断微信浏览器
+        isWechat(){
+            var ua = navigator.userAgent.toLowerCase();
+            if(ua.match(/MicroMessenger/i)=="micromessenger"){
+                return true
+            }
+        },
+        // 判断ios
+        isIOS(){
+            var u = navigator.userAgent,version = '';
+            if(u.indexOf('Mac OS X') > -1){
+                return true
+            }
+        },
         toDownload(url){
-            window.open(url)
+            // 为ios微信浏览器
+            if(this.isWechat()&&this.isIOS()&&url.indexOf('.zip')>-1){
+                const h = this.$createElement;
+                this.$notify({
+                    title: '温馨提示',
+                    message: h('i', { style: 'color: #20528f'}, '请在Safari浏览器打开下载'),
+                    offset: 150,
+                    type:'info',
+                    duration:3000
+                });
+            }else{
+                window.open(url)
+            }
         }
     },
     mounted(){
@@ -116,6 +86,7 @@ export default {
         const params = new URLSearchParams();
         params.append('pageNum', this.pageNum,);
         params.append('pageSize', 8);
+        params.append('type', '内参');
         this.axios({
              method: 'post',
              url: '/manager/resource/list.do',
@@ -132,6 +103,7 @@ export default {
 <style lang="scss">
     .periodical-com{
         background-color: #fafafa;
+        padding-bottom: 30px;
         @mixin transitionAnimate{
             -webkit-transition: all 0.3s ease 0s;
             -ms-transition: all 0.3s ease 0s;
@@ -141,7 +113,7 @@ export default {
         .internal{
             padding: 50px 0 20px;
             @media (max-width: 768px) {
-                padding: 10px 0 20px;
+                padding: 10px 0 5px;
             }
             .title{
                 display: inline-block;
@@ -184,18 +156,20 @@ export default {
                 text-overflow: -o-ellipsis-lastline;
                 text-overflow: ellipsis;
                 display: -webkit-box;
-                -webkit-line-clamp: 1;
+                -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
-                min-height: 24px;
-                max-height: 24px;
+                min-height: 45px;
+                max-height: 45px;
 
             }
             .internalRefer-box{
                 display: inline-block;
                 width: 100%;
                 min-height: 345px;
+                box-shadow: 0 5px 10px #ccc;
                 @media (max-width: 768px) {
-                    min-height: 232px;
+                    min-height: 250px;
+                    box-shadow: 0 5px 10px #ccc;
                 }
                 background-color: #e4e4e4;
                 background-size: 100% 100%;

@@ -12,11 +12,17 @@
                             <p :title="list.summary">{{list.summary}}</p>
                         </div>
                         <div class="list-share-box">
-                            <span class="time">{{list.updateTime|formatDate}}</span>
-                            <p class="text-right">分享到：<el-popover class="text-center" placement="top-start" title="打开微信 “扫一扫”" width="190" trigger="hover" content="这是二维码"><img width="150" :src="'http://qr.liantu.com/api.php?text='+list.articleUrl" alt=""><span slot="reference" title="分享到微信" class="iconfont icon-weixin weiChat"></span></el-popover><span title="分享到微博" class="iconfont icon-weibo2 weibo"></span></p>
+                            <span class="time">{{list.createTime|formatDate}}</span>
+                            <p class="text-right">分享到：
+                                <el-popover class="text-center" placement="top-start" title="打开微信 “扫一扫”" width="190" trigger="hover" content="这是二维码">
+                                    <img width="150" :src="weixinQRcode" alt="">
+                                    <span slot="reference" title="分享到微信" class="iconfont icon-weixin weiChat" @mouseenter="addUrl(list.articleUrl)"></span>
+                                </el-popover><span @click="shareWibo(list.articleUrl,list.title,list.coverImage)" title="分享到微博" class="iconfont icon-weibo2 weibo"></span>
+                            </p>
                         </div>
                     </div>
                 </div>
+                <inter-view-m class="showInMobile col-md-12" :loadNews="newsList"></inter-view-m>
             </div>
             <div class="row mt20">
                 <div class="col-md-12 text-center">
@@ -28,13 +34,18 @@
 </template>
 
 <script>
+import interViewM from './interview-M'
 export default {
+    components:{
+      interViewM
+    },
     data(){
         return{
             pageNum:1,
             loading:true,
             newsList:[],
             addMoreHtml:"加载更多",
+            weixinQRcode: ""
         }
     },
     filters:{
@@ -74,7 +85,7 @@ export default {
             }).then((res)=>{
                 let msg=res.data.data.list
                 for(let i=0;i<msg.length;i++){
-                    if(msg[i].articleCat==="访校文章"){
+                    if(msg[i].articleCat==="人物访谈"){
                         this.newsList.push(msg[i])
                     }
                 }
@@ -82,14 +93,25 @@ export default {
             })
         },
         toDetail(id){
-            console.log(id)
-            this.$router.push({name:"detailNews",params:{id:id}})
+            let routeData =this.$router.resolve({name:"detailNews",params:{id:id}})
+            window.open(routeData.href, '_blank');
+        },
+        shareWibo(url,title,picurl){
+            let sharesinastring='http://v.t.sina.com.cn/share/share.php?title='+title+'&url='+url+'&content=utf-8&sourceUrl='+url+'&pic='+picurl;
+            window.open(sharesinastring,'newwindow','height=400,width=400,top=100,left=100');
+        },
+        addUrl(url) {
+            // this.weixinQRcode = 'https://www.kuaizhan.com/common/encode-png?large=true&data=' + url
+            let _url=url.split('https')[1]
+            let currentUrl='http'+_url
+            this.weixinQRcode = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + currentUrl
         }
     },
     beforeMount(){
         const params = new URLSearchParams();
         params.append('pageNum', this.pageNum,);
         params.append('pageSize', 16);
+        params.append('articleCat',"人物访谈")
         this.axios({
              method: 'post',
              url: '/article/list.do',
@@ -98,11 +120,11 @@ export default {
             let msg=res.data.data.list,
                 originalList=[]
             for(let i=0;i<msg.length;i++){
-                if(msg[i].articleCat==="访校文章"){
+                if(msg[i].articleCat==="人物访谈"){
                     originalList.push(msg[i])
                 }
             }
-            console.log(originalList)
+            // console.log(originalList)
             this.newsList=originalList
             this.loading=false
             this.pageNum=2

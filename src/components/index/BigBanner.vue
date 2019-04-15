@@ -1,76 +1,81 @@
 <template>
   <!-- banner -->
-  <swiper :options="swiperOption" ref="mySwiper" class="swipercontainer">
-      <!-- slides -->
-      <swiper-slide class="bg">
-          <img src="../../assets/img/index/banner001.jpg" alt="" class="img-responsive">
-          <!-- <div class="bgblur bg01"></div> -->
-      </swiper-slide>
-      <swiper-slide class="bg">
-          <img src="../../assets/img/index/banner002.jpg" alt="" class="img-responsive">
-          <!-- <div class="bgblur bg02"></div> -->
-      </swiper-slide>
-      <swiper-slide class="bg">
-          <img src="../../assets/img/index/banner003.jpg" alt="" class="img-responsive">
-          <!-- <div class="bgblur bg02"></div> -->
-      </swiper-slide>
-      <div class="swiper-pagination"  slot="pagination"></div>
-      <div class="swiper-button-prev" slot="button-prev">‹</div>
-      <div class="swiper-button-next" slot="button-next">›</div>
-  </swiper>
+  <div class="swiper-container" id="indexBigBanner">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="(bannerInfos,item) in bannerInfo" :key="item" v-if="item<4">
+                <img :src="bannerInfos.content01" alt="" class="img-responsive" @click="linkTo(bannerInfos.content02)">
+            </div>
+        </div>
+        <div class="swiper-pagination"  slot="pagination"></div>
+        <div class="swiper-button-prev" slot="button-prev"><span class="iconfont icon-arrow-left"></span></div>
+        <div class="swiper-button-next" slot="button-next"><span class="iconfont icon-youjiantou"></span></div>
+  </div>
 </template>
 
 <script>
 import 'swiper/dist/css/swiper.css'
-import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import Swiper from 'swiper'
 export default {
-    components: {
-        swiper,
-        swiperSlide
-    },
-    name: 'carrousel',
     data () {
       return {
-        // 轮播
-        swiperOption: {
-            notNextTick: true,
-            autoplay: {
-                delay:5000,
-                disableOnInteraction: false,
-            },
-            loop: true,
-            // spaceBetween: 30,
-            speed:500,
-            grabCursor : true,
-            effect: 'fade',
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            }
-        },
+          bannerInfo:[]
       }
     },
-    computed:{
-      swiper(){
-        // var swiper01=this.$refs.mySwiper.swiper;
-        // return swiper01
-        return this.$refs.mySwiper.swiper;
-      }
+    methods:{
+        getBannerInfo(){
+            this.axios({
+                method: 'get',
+                url: '/manager/official/list.do',
+                params:{
+                    type:"官网首页banner"
+                }
+            }).then((res)=>{
+                const msg=res.data.data
+                // console.log(msg)
+                this.bannerInfo=msg
+                this.$nextTick(()=>{
+                    this.swiperInit()
+                })
+            })
+        },
+        swiperInit(){
+            const self=this
+            new Swiper('#indexBigBanner', {
+                 notNextTick: true,
+                 autoplay: {
+                    delay:3000,
+                    disableOnInteraction: false,
+                },
+                loop: true,
+                effect : 'fade',
+                speed:600,
+                grabCursor : true,
+                // 如果需要分页器
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            })
+        },
+        linkTo(href){
+            window.open(href,"_blank")
+        }
     },
     mounted(){
-    //    console.log("每次切换都会触发我");
-    //    this.swiper.slideTo(0,1000, false);
+        this.getBannerInfo()
     }
 }
 </script>
 
 <style lang="scss">
     /* banner */
-    .swipercontainer{
+    #indexBigBanner{
+        min-height: 358px;
+        background-color: #eee;
         .swiper-button-prev{
             left: 30px;
         }
@@ -81,7 +86,7 @@ export default {
         .swiper-button-next{
             width:60px;
             height: 60px;
-            line-height: 52px;
+            line-height: 40px;
             text-align: center;
             border-radius: 50%;
             color: #222;
@@ -90,13 +95,14 @@ export default {
             opacity: .4;
             transition: all .3s;
             &:hover{
-            opacity: .7;
+              opacity: .8;
             }
             @media (max-width: 768px) {
                 width: 40px;
                 height: 40px;
                 line-height: 35px;
                 font-size: 30px;
+                opacity: .7;
             }
         }
         .swiper-pagination-bullet-active{
