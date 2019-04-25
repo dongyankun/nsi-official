@@ -4,6 +4,9 @@
           <div>
               <img class="mainPage" src="../../images/advanced.jpg">
           </div> 
+          <div class="enroll">
+              <p @click="enrollNow">立即报名</p>
+          </div>
        </div>
 
         <div v-show="isPcOrMob=='mob'" class="advanced-mob">
@@ -113,7 +116,11 @@
                     <h4 class="footLast">咨询电话: 150 1097 7730</h4>
                 </div>
             </div>
+            <div class="enroll">
+                <p @click="enrollNow">立即报名</p>
+            </div>
         </div>
+        
     </div>    
 </template>
 <script>
@@ -124,7 +131,9 @@
             }
         },
         methods:{
-            
+            enrollNow(){
+                window.open('https://jinshuju.net/f/a4LhEl','_blank')
+            }
         },
         beforeMount(){
             
@@ -146,6 +155,19 @@
             .mainPage{
                 width: 100%;
             }
+            .enroll{
+                text-align: center;
+                p{
+                    color: #fff;
+                    background: #2c6daf;
+                    display: inline-block;
+                    padding: 10px 20px;
+                    font-size: 20px;
+                    letter-spacing: 2px;
+                    border-radius: 5px;
+                    margin-bottom: 50px;
+                }
+            }
         }
 
         .advanced-mob{
@@ -156,14 +178,15 @@
                 margin-bottom: 40px;
                 color: #fff;
                 width: 100%;
-                background-size: 100%;
-                // background-repeat: no-repeat;
                 display: flex;
                 justify-content: center;
                 // align-items: center;
                 flex-direction: column;
-                min-height: 360px;
-                background-image: url('../../images/b.png')
+                min-height: 250px;
+                background-image: url('../../images/b.jpg');
+                background-size:140% 100%;
+                background-position: -110px 0px;
+                background-repeat: no-repeat;
                 
             }
             .container{
@@ -243,6 +266,20 @@
                     .footLast{
                         margin-bottom: 65px;
                     }
+                }
+            }
+            .enroll{
+                text-align: center;
+                p{
+                    color: #fff;
+                    background: #2c6daf;
+                    display: inline-block;
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    letter-spacing: 2px;
+                    border-radius: 5px;
+                    position: relative;
+                    top: -25px;
                 }
             }
         }

@@ -122,7 +122,7 @@ export default {
         wxInit(){
           this.axios({
                   method:"get",
-                  url:'/Admin_api?whereFrom=WeChatShare&Callback=',
+                  url:'/CommonApi/WxShare.do',
                   params:{
                       URL: window.location.href
                   }
@@ -180,7 +180,7 @@ export default {
         .newsDetail-title{
             padding-bottom: 30px;
             border-bottom: 1px solid #d5d5d5;
-            margin-bottom: 30px;
+            // margin-bottom: 30px;
             @media (max-width: 768px) {
                 font-size: 25px;
                 font-weight: 700;

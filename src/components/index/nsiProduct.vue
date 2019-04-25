@@ -5,6 +5,19 @@
                 <div class="col-md-3 col-xs-6">
                     <div class="productBox">
                         <div class="product-logo text-center">
+                            <a href="https://www.xinxueshuo.cn/#/news/latest" target="_blank"><span class="iconfont icon-zixun" style="font-size:50px"></span><br></a>
+                        </div>
+                        <div class="product-name text-center">
+                            <p><a href="https://www.xinxueshuo.cn/#/news/latest" target="_blank" class="name">教育资讯&nbsp;<span class="iconfont icon-yuanjiantou"></span></a></p>
+                        </div>
+                        <!-- <div class="bg">
+                            <a href="http://data.xinxueshuo.cn/nsi-event/Lotus2018/lotus.html">新荷学校</a>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <div class="productBox">
+                        <div class="product-logo text-center">
                             <a style="margin: -14px;" href="http://data.xinxueshuo.cn" target="_blank" class="databaseLogo"><span class="iconfont icon-shu"></span></a>
                         </div>
                         <div class="product-name text-center">
@@ -29,19 +42,6 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-6">
-                    <div class="productBox">
-                        <div class="product-logo text-center">
-                            <a href="http://data.xinxueshuo.cn/nsi-event/Lotus2018/lotus.html" target="_blank"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/layoutImg/lotus.png" width="75" alt=""></a>
-                        </div>
-                        <div class="product-name text-center">
-                            <p><a href="http://data.xinxueshuo.cn/nsi-event/Lotus2018/lotus.html" target="_blank" class="name">新荷学校&nbsp;<span class="iconfont icon-yuanjiantou"></span></a></p>
-                        </div>
-                        <!-- <div class="bg">
-                            <a href="http://data.xinxueshuo.cn/nsi-event/Lotus2018/lotus.html">新荷学校</a>
-                        </div> -->
-                    </div>
-                </div>
-                                <div class="col-md-3 col-xs-6">
                     <div class="productBox">
                         <div class="product-logo text-center">
                             <a href="http://data.xinxueshuo.cn/nsi-class/admin/activity/meeting/vis2018_pc.html" target="_blank"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/layoutImg/vis2018.png" width="65" alt=""></a>

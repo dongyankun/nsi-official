@@ -1,7 +1,7 @@
 <template>
     <div class="newsnav-m-com">
         <div class="container-fluid">
-            <div class="text-center" style="margin-bottom:30px;">
+            <div class="text-center">
                 <!-- <a class="visBanner" href="http://data.xinxueshuo.cn/nsi-event/event/vis2018/visM.html" target="_blank">
                 <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/VIS-ADBanner.jpg" alt="" style="display:inline-block;max-width:100%;height:auto;">
                 </a> -->

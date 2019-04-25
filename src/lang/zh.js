@@ -6,9 +6,9 @@ module.exports = {
         information: "资讯中心",
         event: "会议活动",
         eventChild: {
-            vis: "国际学校发展大会",
+            vis: "VIS国际学校发展大会",
             lotus: "新荷学校大会",
-            subject: "专题研讨会",
+            subject: "地区/专题研讨会",
             apply: "参会报名"
         },
         // lotusContent: {
@@ -77,7 +77,7 @@ module.exports = {
         researchChild_Mob: {
             magazine: "国际学校内参",
             report: "研究报告",
-            pisom: "必盛研修班",
+            pisom: "高级管理研修班",
             classOnline: "教育研究院",
             apply: "课程报名"
         },
@@ -90,7 +90,7 @@ module.exports = {
         tel: "联系电话：010-52468286",
         email: "邮箱：info@xinxueshuo.cn",
         phone: "手机：15010927730",
-        
+
         address: "地址：北京市朝阳区曙光西里时间国际A座1501",
         weChat: "微信公众号",
         weibo: "国际教育研究院",

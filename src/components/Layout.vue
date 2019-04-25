@@ -9,6 +9,7 @@
                             <div class="logoContainer">
                                 <a href="javascript:;"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/layoutImg/logo.png" alt="" width="220" height="45" class="logo"></a>
                                 <div class="selectLang">
+                                    <a href="javascript:;" title="搜索"><span class="iconfont icon-sousuo search" @click="searchResult"></span></a>
                                     <el-dropdown @command="handleCommand" placement="top" trigger="click">
                                         <span class="el-dropdown-link">
                                           <img class="activelogo" :src="logoActive" alt="" width="30">&nbsp;{{countryActive}}<i class="el-icon-arrow-down el-icon--right"></i>
@@ -64,13 +65,13 @@
                                                             <a href="http://data.xinxueshuo.cn/nsi-class/admin/activity/meeting/vis2018.html" target="_blank"><img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/layoutImg/vis2018.png" width="35" alt="">&nbsp;{{$t('layoutNav.eventChild.vis')}}</a>
                                                         </el-dropdown-item>
                                                         <el-dropdown-item>
-                                                            <router-link :to="{path:'/event/lotus'}">&nbsp;<span class="iconfont icon-huiyi1 logoFont"></span>{{$t('layoutNav.eventChild.lotus')}}</router-link>
+                                                            <!-- <router-link :to="{path:'/event/lotus'}">&nbsp;<span class="iconfont icon-huiyi1 logoFont"></span>{{$t('layoutNav.eventChild.lotus')}}</router-link> -->
                                                         </el-dropdown-item>
                                                         <el-dropdown-item>
                                                             <router-link :to="{path:'/event/subject'}">&nbsp;<span class="iconfont icon-zhuanti logoFont"></span>{{$t('layoutNav.eventChild.subject')}}</router-link>
                                                         </el-dropdown-item>
                                                         <el-dropdown-item>
-                                                            <router-link :to="{path:'/event/apply'}">&nbsp;<span class="iconfont icon-baoming logoFont"></span>{{$t('layoutNav.eventChild.apply')}}</router-link>
+                                                            <!-- <router-link :to="{path:'/event/apply'}">&nbsp;<span class="iconfont icon-baoming logoFont"></span>{{$t('layoutNav.eventChild.apply')}}</router-link> -->
                                                         </el-dropdown-item>
                                                     </el-dropdown-menu>
                                                 </el-dropdown>
@@ -112,7 +113,7 @@
                                                             <router-link :to="{path:'/research/periodical'}">{{$t('layoutNav.researchChild.magazine')}}</router-link>
                                                         </el-dropdown-item>
                                                         <el-dropdown-item>
-                                                            <router-link :to="{path:'/research/apply'}">{{$t('layoutNav.researchChild.apply')}}</router-link>
+                                                            <!-- <router-link :to="{path:'/research/apply'}">{{$t('layoutNav.researchChild.apply')}}</router-link> -->
                                                         </el-dropdown-item>
                                                          <el-dropdown-item>
                                                             <router-link :to="{path:'/research/experts'}">{{$t('layoutNav.researchChild.experts')}}</router-link>
@@ -211,7 +212,7 @@
                         <div class="col-md-2 col-xs-2 col-xs-offset-1 text-center noPr15">
                             <div class="wechatBox weiboBox">
                                 <h6 class="aboutUs">{{this.$t('layoutFooter.weibo')}}</h6>
-                                <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/layoutImg/weidian.png" alt="" width="110" height="110">
+                                <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/layoutImg/shop.jpg" alt="" width="110" height="110">
                             </div>
                         </div>
                   </div>
@@ -298,6 +299,9 @@ export default {
         this.$i18n.locale =command.lang
         // console.log(command)
       },
+      searchResult(){
+         this.$router.push({path:'/search'})
+      }
    }
 }
 </script>
@@ -397,7 +401,7 @@ export default {
         top: 4px;
     }
     .mt50{
-        margin-top: 50px;
+        margin-top: 26px;
     }
     .noPr15{
         padding-right: 0;
@@ -512,7 +516,25 @@ export default {
     .selectLang{
         position: absolute;
         right: 15px;
-        top: 25px;
+        top: 15px;
+        .search{
+            font-size: 30px;
+            position: relative;
+            right: 20px;
+            top: 8px;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            @media (max-width: 768px) {
+                display: none;
+            }
+            &:hover{
+                background: #eee;
+                border-radius: 50%;
+            }
+        }
         @media (max-width:768px) {
             top: 10px;
         }
@@ -580,7 +602,7 @@ export default {
       position: relative;
       background-color: #2f2f2f;
       @media (max-width:768px) {
-          margin-top: 30px;
+          margin-top: 20px;
       }
     }
     .footer-bottom>.container{
@@ -728,7 +750,8 @@ export default {
         display: none;
     }
     .footer-company{
-        font-size: 13px;
+        font-size: 14px;
+        display: inline-block;
     }
     .copyright{
         font-size: 12px;

@@ -13,61 +13,15 @@
 </template>
 
 <script>
-import 'swiper/dist/css/swiper.css'
-import Swiper from 'swiper'
 export default {
-    data () {
-      return {
-          bannerInfo:[]
-      }
+    props:{
+        bannerInfo:{},
     },
     methods:{
-        getBannerInfo(){
-            this.axios({
-                method: 'get',
-                url: '/manager/official/list.do',
-                params:{
-                    type:"官网首页banner"
-                }
-            }).then((res)=>{
-                const msg=res.data.data
-                // console.log(msg)
-                this.bannerInfo=msg
-                this.$nextTick(()=>{
-                    this.swiperInit()
-                })
-            })
-        },
-        swiperInit(){
-            const self=this
-            new Swiper('#indexBigBanner', {
-                 notNextTick: true,
-                 autoplay: {
-                    delay:3000,
-                    disableOnInteraction: false,
-                },
-                loop: true,
-                effect : 'fade',
-                speed:600,
-                grabCursor : true,
-                // 如果需要分页器
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-            })
-        },
         linkTo(href){
-            window.open(href,"_blank")
+            window.open(href,"_")
         }
     },
-    mounted(){
-        this.getBannerInfo()
-    }
 }
 </script>
 

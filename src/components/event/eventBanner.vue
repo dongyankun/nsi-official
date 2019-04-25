@@ -3,7 +3,7 @@
         <!-- banner -->
         <div class="swiper-container" id="eventBanner">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="(bannerInfos,item) in bannerInfo" :key="item">
+                <div class="swiper-slide showPc" v-for="(bannerInfos,item) in bannerInfo" :key="item">
                     <img :src="bannerInfos.coverImage" alt="" class="img-responsive">
                 </div>
             </div>
@@ -11,9 +11,21 @@
             <div class="swiper-button-prev" slot="button-prev"><span class="iconfont icon-arrow-left"></span></div>
             <div class="swiper-button-next" slot="button-next"><span class="iconfont icon-youjiantou"></span></div>
         </div>
+
+        <div class="swiper-container" id="eventBannerMob">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide showMob" v-for="(bannerInfos,item) in bannerInfo" :key="item">
+                    <img :src="bannerInfos.coverImageMob" alt="" class="img-responsive">
+                </div>
+            </div>
+            <div class="swiper-pagination"  slot="pagination"></div>
+            <div class="swiper-button-prev" slot="button-prev"><span class="iconfont icon-arrow-left"></span></div>
+            <div class="swiper-button-next" slot="button-next"><span class="iconfont icon-youjiantou"></span></div>
+        </div>
+
     </div>
 </template>
-
+ 
 <script>
 import 'swiper/dist/css/swiper.css'
 import Swiper from 'swiper'
@@ -21,12 +33,13 @@ export default {
     data () {
       return {
           bannerInfo:[
-        //   {
-        //       coverImage:require('https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/event/eventBanner01.jpg')
-        //   },
-          {
-              coverImage:'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/event/eventBanner03.jpg'
-          }]
+            {
+                coverImage:require('../../images/vis.jpg'),
+                coverImageMob:require('../../images/vismob.jpg')
+            },{
+                coverImage:require('../../images/yan.jpg'),
+                coverImageMob:require('../../images/yan.jpg')
+            }]
       }
     },
     methods:{
@@ -48,7 +61,27 @@ export default {
         },
         swiperInit(){
             const self=this
-            new Swiper('#eventBanner', {
+            new Swiper('#eventBanner',{
+                 notNextTick: true,
+                 autoplay: {
+                    delay:3000,
+                    disableOnInteraction: false,
+                },
+                loop: true,
+                effect : 'fade',
+                speed:600,
+                grabCursor : true,
+                // 如果需要分页器
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            })
+            new Swiper('#eventBannerMob',{
                  notNextTick: true,
                  autoplay: {
                     delay:3000,
@@ -87,7 +120,23 @@ export default {
         .img-responsive{
             display: inline-block;
             max-width: 100%;
-            height: auto;
+            min-width: 100%;
+        }
+        .showPc{
+            display: block;
+            @media (max-width:768px) {
+                display:none;
+            }
+        }
+        .showMob{
+            display: none;
+            .img-responsive{
+                max-height:155px;
+                min-height:155px;
+            }
+            @media (max-width: 768px) {
+                display:block;
+            }
         }
         .swiper-button-prev,
         .swiper-button-next{
@@ -95,22 +144,26 @@ export default {
             height: 60px;
             line-height: 40px;
             text-align: center;
-            border-radius: 50%;
+            // border-radius: 50%;
             color: #222;
-            background: #fff;
+            background: none;
             font-size: 50px;
             opacity: 0;
             transition: all .3s;
             &:hover{
             opacity: .9;
             }
-            @media (max-width: 768px) {
-                width: 40px !important;
-                height: 40px !important;
-                line-height: 25px;
+            span{
                 font-size: 40px;
-                outline: none;
-                opacity: .8;
+            }
+            @media (max-width: 768px) {
+                display:none;
+                // width: 40px !important;
+                // height: 40px !important;
+                // line-height: 25px;
+                // font-size: 40px;
+                // outline: none;
+                // opacity: .8;
             }
         }
         .swiper-button-prev{

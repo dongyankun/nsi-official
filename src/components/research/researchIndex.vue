@@ -1,7 +1,7 @@
 <template>
     <div class="researchIndex-com">
         <div class="banner text-center">
-            <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/research/banner.jpg" alt="">
+            <img src="https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/research/banner.jpg" alt="" class="img-responsive">
         </div>
         <div class="container">
             <div class="row">
@@ -188,6 +188,7 @@ export default {
        img{
            display: inline-block;
            max-width: 100%;
+           min-width: 100%;
            height: auto;
        }
        .pl7{

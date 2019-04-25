@@ -16,7 +16,7 @@ Vue.use(VueI18n)
 Vue.config.productionTip = false
 
 // 罗震
-// axios.defaults.baseURL = "http://192.168.0.191:8080/nsi-1.0"
+// axios.defaults.baseURL = "http://192.168.0.20:8080/nsi-1.0"
 
 // 生产
 axios.defaults.baseURL = "https://data.xinxueshuo.cn/nsi-1.0"
@@ -32,6 +32,19 @@ const i18n = new VueI18n({
         'en': require('./lang/en')
     }
 })
+
+//  百度统计
+router.afterEach((to, from, next) => { 
+    setTimeout(() => {   
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e898a1b6e73616a0c84313f55a47efd6";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    }, 0);
+});
 
 /* eslint-disable no-new */
 new Vue({

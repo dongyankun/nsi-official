@@ -20,6 +20,14 @@
                 </div>
             </div>
         </div>
+        <div class="buyFullBook">
+            <p @click="buyFull">购买完整版国际学校内参</p>
+            <div class="erweima" :class="isShow ? 'show':'hide'">
+                <span class="title">国际教育研究院</span>
+                <span class="close"  @click="isShowBox">×</span>
+                <img src="../../images/erweima.png" alt="" class="img-responsive">
+            </div>
+        </div>
     </div>
 </template>
 
@@ -29,7 +37,8 @@ export default {
         return{
              pageNum:1,
             // 内参
-            internalReferList:[] 
+            internalReferList:[],
+            isShow:false
         } 
     },
     methods:{
@@ -77,6 +86,18 @@ export default {
             }else{
                 window.open(url)
             }
+        },
+        buyFull(){
+            window.open("https://www.xinxueshuo.cn/nsi-shop/dist/index.html#/", '_blank')
+            // if(screen.width<=768){
+            //     this.isShow=false
+            //     window.open("https://www.xinxueshuo.cn/nsi-shop/dist/index.html#/", '_blank')
+            // }else{
+            //     this.isShow=true
+            // }
+        },
+        isShowBox(){
+            this.isShow=false
         }
     },
     mounted(){
@@ -100,7 +121,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .periodical-com{
         background-color: #fafafa;
         padding-bottom: 30px;
@@ -181,5 +202,66 @@ export default {
                 }
             }
         }
+        .buyFullBook{
+            text-align: center;
+            position: relative;
+            p{
+                color: #fff;
+                background: #2c6daf;
+                display: inline-block;
+                padding: 10px 20px;
+                font-size: 16px;
+                letter-spacing: 2px;
+                border-radius: 5px;
+            }
+            .erweima{
+                position: absolute;
+                right:43%;
+                bottom: 90px;
+                height: 330px;
+                width: 280px;
+                background-color: #fff;
+                border-radius: 4px;
+                box-shadow: 0 0 3px 1px rgba(0, 0, 0, .26);
+                text-align: center;
+                &:after{
+                    content: ' ';
+                    display: block;
+                    position: absolute;
+                    left: 47%;
+                    bottom: -15px;
+                    width: 30px;
+                    height: 30px;
+                    background: #ffffff;
+                    -webkit-box-shadow: -2px -2px 4px -2px rgba(0, 0, 0, 0.5);
+                    box-shadow: 2px -2px 4px -2px rgba(0, 0, 0, 0.5);
+                    -webkit-transform: rotate(135deg);
+                }
+                .title{
+                    position: relative;
+                    top: 20px;
+                    left: -58px;
+                    font-size: 16px;
+                }
+                .close{
+                    position: relative;
+                    right: 20px;
+                    top: 20px;
+                    border: 1px solid;
+                    border-radius: 50%;
+                    width: 22px;
+                    height: 22px;
+                    line-height: 22px;
+                    padding-right: 1px;
+                }
+                img{
+                    width: 88%;
+                    display: inline-block;
+                    position: relative;
+                    top: 36px;
+                }
+            }
+        }
+        
     }
 </style>

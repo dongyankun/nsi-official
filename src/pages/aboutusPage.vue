@@ -152,7 +152,7 @@ export default {
         .about-bg{
             width: 100%;
             height: 550px;
-            background-image: url("https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/about/about.jpg");
+            background-image: url("../images/about.jpg");
             background-size: 100%;
             background-position: center;
             position: relative;

@@ -10,52 +10,15 @@
 </template>
 
 <script>
-import 'swiper/dist/css/swiper.css'
-import Swiper from 'swiper'
-export default {
-    data () {
-      return {
-          bannerInfo:[]
-      }
+export default { 
+    props:{
+        bannerInfo:{},
     },
     methods:{
-        getBannerInfo(){
-            this.axios({
-                method: 'get',
-                url: '/manager/official/list.do',
-                params:{
-                    type:"官网首页banner"
-                }
-            }).then((res)=>{
-                const msg=res.data.data
-                // console.log(msg)
-                this.bannerInfo=msg
-                this.$nextTick(()=>{
-                    this.swiperInit()
-                })
-            })
-        },
-        swiperInit(){
-            const self=this
-            new Swiper('#indexBannerBottom', {
-                 notNextTick: true,
-                 autoplay: {
-                    delay:3000,
-                    disableOnInteraction: false,
-                },
-                loop: true,
-                effect : 'fade',
-                speed:600,
-                grabCursor : true,
-            })
-        },
         linkTo(href){
             window.open(href,"_")
         }
     },
-    mounted(){
-        this.getBannerInfo()
-    }
 }
 </script>
 

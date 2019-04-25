@@ -8,6 +8,7 @@ import eventPage from "../pages/eventPage.vue"
 import researchPage from '../pages/researchPage.vue'
 import consultingPage from '../pages/consulting.vue'
 import lotusPage from '../pages/lotusPage.vue'
+import searchPage from '../pages/searchPage'
 import vipPage from '../pages/vipPage.vue'
 
 import newestList from '../components/information/newList.vue'
@@ -19,6 +20,7 @@ import interview from '../components/information/interview.vue'
 import historyNews from '../components/information/histroy.vue'
 import historydetail from '../components/information/historyDetail.vue'
 
+import eventWorkShop from '../components/event/eventWorkShop.vue'
 import eventLatest from '../components/event/eventLatest.vue'
 import eventDetail from '../components/event/eventDetail.vue'
 import eventLotus from '../components/event/eventLotus.vue'
@@ -96,7 +98,7 @@ const routes = [{
             },
             {
                 path: 'subject',
-                component: notFondPage
+                component: eventWorkShop
             }, {
                 path: 'lotus',
                 component: eventLotus
@@ -178,6 +180,9 @@ const routes = [{
     }, {
         path: '/apply',
         component: applyTalent
+    }, {
+        path: '/search',
+        component: searchPage
     }
 ]
 

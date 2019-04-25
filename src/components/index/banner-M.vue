@@ -79,7 +79,8 @@ export default {
 <style lang="scss">
     .banner-M-com{
         .indexBannerM{
-            min-height: 171px;
+            min-height: 150px;
+            max-height:150px;
             background-color: #eee;
         }
         .swiper-button-prev,

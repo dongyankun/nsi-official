@@ -7,10 +7,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3 col-xs-6" v-for="(experts,index) in expertsList" :class="{'pr7':index%2==0,'pl7':index%2!=0}">
+                <div class="col-md-3 col-xs-6" v-for="(experts,index) in expertsList" :key="index" :class="{'pr7':index%2==0,'pl7':index%2!=0}">
                     <div class="expertsBox">
                         <div class="imgBox text-center">
-                            <img width="135" :src='experts.imgUrl' alt="" class="img-responsive">
+                            <img width="135" height="135" :src='experts.imgUrl' alt="" class="img-responsive">
                         </div>
                         <div class="infoBox">
                             <p class="info-name text-center">{{experts.name}}</p>
@@ -35,12 +35,12 @@ export default {
                     job:'新学说创始人',
                     desc:'汉通教育 创始人兼 CEO<br/>腾讯教育专栏作家',
                 },
-                {
-                    imgUrl:'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/research/experts/静姐.jpg',
-                    name:'程静',
-                    job:'新学说联合创始人兼运营总监',
-                    desc:''
-                },
+                // {
+                //     imgUrl:'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/research/experts/静姐.jpg',
+                //     name:'程静',
+                //     job:'新学说联合创始人兼运营总监',
+                //     desc:''
+                // },
                 {
                     imgUrl:'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/research/experts/安盈.jpg',
                     name:'安瀛',
@@ -57,7 +57,7 @@ export default {
                     imgUrl:'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/research/experts/李周.jpg',
                     name:'李周',
                     job:'良裁教育创办人',
-                    desc:''
+                    desc:'人大附中北京经开区实验学校（亦庄）首席教育专家和学生生涯总规划师'
                 },
                 {
                     imgUrl:'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/research/experts/吴峥原图.jpg',
@@ -80,6 +80,56 @@ export default {
                     name:'高美华',
                     job:'某外籍子女学校人力资源部负责',
                     desc:'15年的从业经验中在世界五百强某外资银行6年以及先后在上海重庆两家知名外籍子女学校任职9年，任人力资源部负责人。'
+                },{
+                    imgUrl:require('../../images/letures/董圣足.jpg'),
+                    name:'董圣足',
+                    job:'上海市科教民办教育研究所所长',
+                    desc:'中国民办教育协会常务理事、民办教育研究院常务副院长'
+                },{
+                    imgUrl:require('../../images/letures/徐俭.jpg'),
+                    name:'徐俭',
+                    job:'上海世外教育集团总裁',
+                    desc:'交通大学公共管理硕士，上海世界外国语小学副董事长'
+                },{
+                    imgUrl:require('../../images/letures/吴华.jpg'),
+                    name:'吴华',
+                    job:'浙江大学教育学院教授、博士生导师',
+                    desc:'中国民办教育协会常务理事,国家民办教育法律与政策设计咨询专家。'
+                },{
+                    imgUrl:require('../../images/letures/林敏.jpg'),
+                    name:'林敏',
+                    job:'上海西外外国语学校创办人兼总校长',
+                    desc:'上海市督学，复旦大学学士，英国利兹大学博士'
+                },{
+                    imgUrl:require('../../images/letures/卢慧文.jpg'),
+                    name:'卢慧文',
+                    job:'上海协和教育集团总校长',
+                    desc:'上海市政协常委，上海市民办中小学协会副会长'
+                },{
+                    imgUrl:require('../../images/letures/吴子健.jpg'),
+                    name:'吴子健',
+                    job:'上海包玉刚实验学校校长',
+                    desc:'上海市民办中小学协会副会长；华东师范大学青少年发展研究中心特聘教授'
+                },{
+                    imgUrl:require('../../images/letures/李萍.jpg'),
+                    name:'李萍',
+                    job:'中国常熟世界联合学院副校长',
+                    desc:'毕业于厦门大学汉语言文学系，留校任教13年'
+                },{
+                    imgUrl:require('../../images/letures/毛恩.jpg'),
+                    name:'毛恩',
+                    job:'中锐教育集团副董事长',
+                    desc:'曾任航天局第八设计部团委书记、上海团市委研究室主任、上海第一百货集团公司副总经理'
+                },{
+                    imgUrl:require('../../images/letures/梁兴安.jpg'),
+                    name:'梁兴安',
+                    job:'领科教育集团创办人',
+                    desc:'中国人民大学本科，研究生，经济学硕士，中欧国际工商管理学院EMBA'
+                },{
+                    imgUrl:require('../../images/letures/华晓杭.jpg'),
+                    name:'华晓杭',
+                    job:'苏州工业园区海归人才子女学校校长',
+                    desc:'连续创建多所具有创新价值的IB学校'
                 }
             ]
         }
@@ -133,6 +183,7 @@ export default {
                     border-radius: 2px;
                     display: inline-block !important;
                     min-height: 135px;
+                    max-height:135px;
                     background-color: #eee;
                     @media (max-width: 768px) {
                         min-height: auto;
@@ -176,11 +227,11 @@ export default {
                     line-height: 20px;
                     color: #999;
                     font-size: 12px;
-                    min-height: 65px;
-                    max-height: 65px;
+                    min-height: 72px;
+                    max-height: 72px;
                     overflow: hidden;
                     text-overflow: ellipsis;
-                    display: -webkit-box;
+                    // display: -webkit-box;
                     -webkit-line-clamp: 4;
                     -webkit-box-orient: vertical;
                     line-height: 2;

@@ -56,13 +56,13 @@ export default {
                     time:"2018.11.09-2018.11.11"
                     
                 },
-                {
-                    title:"新荷 ● 中国国际学校节",
-                    imgSrc:"https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/event/eventBanner01.jpg",
-                    imgSrcM:'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/event/eventM03.jpg',
-                    url:"http://data.xinxueshuo.cn/nsi-event/Lotus2018/lotus.html",
-                    time:"2018.02-2018.10"
-                },
+                // {
+                //     title:"新荷 ● 中国国际学校节",
+                //     imgSrc:"https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/event/eventBanner01.jpg",
+                //     imgSrcM:'https://nsi.oss-cn-zhangjiakou.aliyuncs.com/nsi-official/image/event/eventM03.jpg',
+                //     url:"http://data.xinxueshuo.cn/nsi-event/Lotus2018/lotus.html",
+                //     time:"2018.02-2018.10"
+                // },
                 {
                    title:"2017VIS国际学校发展大会",
                    imgSrc:"https://nsi.oss-cn-zhangjiakou.aliyuncs.com/ArticlePic/activity002.jpg",

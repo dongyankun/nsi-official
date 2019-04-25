@@ -10,7 +10,7 @@
                         </div>
                     </a>
                 </div> -->
-                <div class="col-md-6 col-xs-6 mb30" v-for="(list,index) in eventList">
+                <div class="col-md-6 col-xs-6 mb30" v-for="(list,index) in eventList" :key="index">
                     <div class="row">
                       <div class="col-md-8 pl0 pr0">
                         <a class="event-list" :href="list.url" target="_blank">

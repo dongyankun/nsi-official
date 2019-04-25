@@ -28,7 +28,7 @@ export default {
          wxInit(){
           this.axios({
                   method:"get",
-                  url:'/Admin_api?whereFrom=WeChatShare&Callback=',
+                  url:'/CommonApi/WxShare.do',
                   params:{
                       URL: window.location.href
                   }

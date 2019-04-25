@@ -162,7 +162,8 @@ export default {
             min-height: 400px;
             background-color: #eee;
             @media (max-width: 768px) {
-                min-height: 200px;
+                min-height:180px;
+                max-height:180px;
                 box-shadow: none;
             }
             &:hover .swiper-button-prev,

@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="row ptpb30">
-                <div class="col-md-3 col-xs-6" v-for="(item,index) in vipItem" :class="{'pr7M':(index%2==0),'pl7M':(index%2!=0)}">
+                <div class="col-md-3 col-xs-6" v-for="(item,index) in vipItem" :class="{'pr7M':(index%2==0),'pl7M':(index%2!=0)}" :key="item">
                     <a class="vipItem" href="javascript:;">
                         <div class="row">
                             <div class="col-md-7">
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="row ptpb30">
-                <div class="col-md-3 col-xs-6" v-for="(item,index) in vipItem01" :class="{'pr7M':(index%2==0),'pl7M':(index%2!=0)}">
+                <div class="col-md-3 col-xs-6" v-for="(item,index) in vipItem01" :key="item" :class="{'pr7M':(index%2==0),'pl7M':(index%2!=0)}">
                     <a class="vipItem" href="javascript:;">
                         <div class="row">
                             <div class="col-md-7">
@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="row vipCardContainer">
-                    <div class="col-md-3 cardBox" v-for="(item,index) in vipList">
+                    <div class="col-md-3 cardBox" v-for="(item,index) in vipList" :key="item">
                         <div class="card" :style="'border-top: 3px solid'+ item.vipColor">
                             <div class="cardContent text-canter">
                                 <!-- <img src="../assets/img/vip/vip01.jpg" alt="" width="200"> -->
