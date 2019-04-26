@@ -94,6 +94,9 @@
 </script>
 
 <style lang="scss" scoped>
+.row{
+  margin: 0;
+}
     .aboutus-com{
         background-color: #FAFAFA;
         .goToConnectUs{

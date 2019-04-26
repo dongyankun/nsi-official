@@ -2,13 +2,13 @@
 <div>
     <div v-show="screenWidth<768" class="aboutUsList">
         <div class="text-center">
-            <router-link tag="span" active-class="consultListActive" :to="{path:'/about/index'}">{{$t('service.consult')}}</router-link>
+            <router-link tag="span" active-class="consultListActive" :to="{path:'/about/index'}">{{$t('layoutNav.aboutus')}}</router-link>
         </div>
         <div class="text-center">
-            <router-link tag="span" active-class="consultListActive" :to="{path:'/about/joinus'}">{{$t('service.scheme')}}</router-link>
+            <router-link tag="span" active-class="consultListActive" :to="{path:'/about/joinus'}">{{$t('layoutNav.aboutusChild.joinUs')}}</router-link>
         </div>
         <div class="text-center">
-            <router-link tag="span" active-class="consultListActive" :to="{path:'/about/connectus'}">{{$t('service.capacity')}}</router-link>
+            <router-link tag="span" active-class="consultListActive" :to="{path:'/about/connectus'}">{{$t('layoutNav.aboutusChild.connectUs')}}</router-link>
         </div>
     </div>                  
     <router-view></router-view>
@@ -20,7 +20,7 @@ import wxShareInit from '../assets/js/weChatShare01.js'
 export default {
     data(){
         return{
-            aboutus:[this.$t('aboutus.mission'),this.$t('aboutus.missionContent'),this.$t('aboutus.aboutNSI'),this.$t('aboutus.aboutNSIContent'),this.$t('aboutus.team'),this.$t('aboutus.teamContent'),this.$t('aboutus.partner'),this.$t('aboutus.partnerContent'),this.$t('aboutus.connectUs'),this.$t('layoutFooter.tel'),this.$t('layoutFooter.email'),this.$t('layoutFooter.phone'),this.$t('layoutFooter.address')],
+            aboutus:[this.$t('aboutus.mission'),this.$t('aboutus.missionContent'),this.$t('aboutus.aboutNSI'),this.$t('aboutus.aboutNSIContent'),this.$t('aboutus.team'),this.$t('aboutus.teamContent'),this.$t('aboutus.partner'),this.$t('aboutus.partnerContent'),this.$t('aboutus.connectUs'),this.$t('layoutFooter.tel'),this.$t('layoutFooter.email'),this.$t('layoutFooter.phone'),this.$t('layoutFooter.address'),this.$t('layoutNav.aboutus'),this.$t('layoutNav.aboutusChild.joinUs'),this.$t('layoutNav.aboutusChild.connectUs')],
             wxShareInfo:{
                   title:"新学说 | 国际学校多边服务平台",
                   imgUrl:"https://data.xinxueshuo.cn/upImage/upInstitutionImg/100062/100062-logo.jpg",
