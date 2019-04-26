@@ -3,6 +3,10 @@ module.exports = {
     layoutNav: {
         index: "Home",
         aboutus: "About Us",
+        aboutusChild: {
+            joinUs:'Join us',
+            connectUs:'Contact Us'
+        },
         information: "News",
         event: "Events",
         eventChild: {
@@ -48,7 +52,15 @@ module.exports = {
         weibo: "Store Account",
         database: "DataBase",
         classOnline: "Class",
-        databaseM: "DataBase"
+        databaseM: "DataBase",
+        mediaPartners:"Media Partners：Hilda Qin",
+        schoolProject:"School Project：Hunter Su",
+        researchCollaboration:"Research Collaboration：May Wu",
+        businessCooperation:"Business Cooperation：Una Zhang",
+        mediaPartnersEmail:"Email：qinqiaoyun@xinxueshuo.cn",
+        schoolProjectEmail:"Email：suhengliang@xinxueshuo.cn",
+        researchCollaborationEmail:"Email：wuyue@xinxueshuo.cn",
+        businessCooperationEmail:"Email：zhangziyu@xinxueshuo.cn",
     },
     layoutgesFooter: {
         tel01: "Tel：",
@@ -71,6 +83,8 @@ module.exports = {
         missionContent: "To promote the growth of international schools and the healthy development of the industry on the world stage. To be China's preeminent service platform for the international school industry.",
         aboutNSI: "About NSI",
         aboutNSIContent: "Beijing NewSchool Insight Culture and Media Limited Company, known as NewSchool Insight (NSI), is a multilateral media, research and consulting firm established in 2015 by experts from China’s international school industry. Since its formation, NSI has been committed to the scientific analysis and field study of public and private K-12 international schools and their related industries in China. Through contact with over 400 international schools, NSI has amassed an extensive database and sweeping expertise in the international education sector at both the local and national levels, mapping out the country’s distribution of international schools and keeping a pulse on the latest issues and trends.",
+        aboutNSI2: "NSI",
+        aboutNSIContent2: "北京新学说文化传媒有限公司是由国际学校行业专家共同打造的多边服务平台,以新媒体为载体、以行业研究为核心、以行业服务为宗旨。自成立以来一直致力于中国国际学校行业研究,对于中国国际学校有着深刻的理解。到目前为止,新学说已在自有媒体上发表了上干篇行业原创文章,二十余本深度行业报告新学说以“让中国没有办不好的国际学校”为使命,从投资建设,市场品牌、运营管理,学术保障,人才培养等多角度为国际学校提供全方位多层次的支持与服务,努力成为中国国际学校的最佳服务合作伙伴。新学说坚信:好的教育可以让世界更美好。新学说将继续奉行“踏踏实实搞硏究,认认真真做内容,实实在在提高服务品质“的价值观,期待通过我们的努力可以让学校更健康地发展,从而为社会提供更好的教育。",
         team: "Team Introduction",
         teamContent: "NSI is composed of a team of unique and talented professionals who are committed to providing all-around quality service to international schools. Based on hard data and research conclusions, we provide schools with practical operational plans and advisory services, such as pre-school construction consultation, curriculum design and marketing planning.",
         partner: "Cooperation",

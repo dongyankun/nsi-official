@@ -1,33 +1,54 @@
-<template>   
-<div>
-    <div v-show="screenWidth<768" class="aboutUsList">
-        <div class="text-center">
-            <router-link tag="span" active-class="consultListActive" :to="{path:'/about/index'}">{{$t('service.consult')}}</router-link>
+<template>
+    <div class="aboutus-com">
+        <!-- content -->
+        <div class="bgff">
+            <div class="container about-nsi">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <h3>{{$t('aboutus.aboutNSI2')}}</h3>
+                            <h3><small>{{$t('aboutus.aboutNSIContent2')}}</small></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="text-center">
-            <router-link tag="span" active-class="consultListActive" :to="{path:'/about/joinus'}">{{$t('service.scheme')}}</router-link>
+        <div class="bgfa" style="padding:85px 0">
+            <div class="container aboutus">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>{{$t('aboutus.connectUs')}}</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <p>{{$t('layoutFooter.mediaPartners')}}</p>
+                        <p>{{$t('layoutFooter.schoolProject')}}</p>
+                        <p>{{$t('layoutFooter.researchCollaboration')}}</p>
+                        <p>{{$t('layoutFooter.businessCooperation')}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>{{$t('layoutFooter.mediaPartnersEmail')}}</p>
+                        <p>{{$t('layoutFooter.schoolProjectEmail')}}</p>
+                        <p>{{$t('layoutFooter.researchCollaborationEmail')}}</p>
+                        <p>{{$t('layoutFooter.businessCooperationEmail')}}</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="text-center">
-            <router-link tag="span" active-class="consultListActive" :to="{path:'/about/connectus'}">{{$t('service.capacity')}}</router-link>
-        </div>
-    </div>                  
-    <router-view></router-view>
-</div>
+    </div>
 </template>
 
 <script>
-import wxShareInit from '../assets/js/weChatShare01.js'
+import wxShareInit from '../../assets/js/weChatShare01.js'
 export default {
     data(){
         return{
-            aboutus:[this.$t('aboutus.mission'),this.$t('aboutus.missionContent'),this.$t('aboutus.aboutNSI'),this.$t('aboutus.aboutNSIContent'),this.$t('aboutus.team'),this.$t('aboutus.teamContent'),this.$t('aboutus.partner'),this.$t('aboutus.partnerContent'),this.$t('aboutus.connectUs'),this.$t('layoutFooter.tel'),this.$t('layoutFooter.email'),this.$t('layoutFooter.phone'),this.$t('layoutFooter.address')],
+            aboutus:[this.$t('aboutus.mission'),this.$t('aboutus.missionContent'),this.$t('aboutus.aboutNSI'),this.$t('aboutus.aboutNSIContent'),this.$t('aboutus.aboutNSI2'),this.$t('aboutus.aboutNSIContent2'),this.$t('aboutus.team'),this.$t('aboutus.teamContent'),this.$t('aboutus.partner'),this.$t('aboutus.partnerContent'),this.$t('aboutus.connectUs'),this.$t('layoutFooter.tel'),this.$t('layoutFooter.email'),this.$t('layoutFooter.phone'),this.$t('layoutFooter.address'),this.$t('layoutFooter.mediaPartners'),this.$t('layoutFooter.schoolProject'),this.$t('layoutFooter.researchCollaboration'),this.$t('layoutFooter.businessCooperation'),this.$t('layoutFooter.mediaPartnersEmail'),this.$t('layoutFooter.schoolProjectEmail'),this.$t('layoutFooter.researchCollaborationEmail'),this.$t('layoutFooter.businessCooperationEmail')],
             wxShareInfo:{
                   title:"新学说 | 国际学校多边服务平台",
                   imgUrl:"https://data.xinxueshuo.cn/upImage/upInstitutionImg/100062/100062-logo.jpg",
                   href:window.location.href,
                   desc:"国际学校行业专家打造的多边媒体平台，以新媒体为载体、以行业研究为核心、以行业服务为平台"
-              },
-            screenWidth:10
+              }
         }
     },
     beforeMount(){
@@ -35,28 +56,16 @@ export default {
         if(wxShareInit.isWeixinBrowser()){
             setTimeout(wxShareInit.wxReady(this.wxShareInfo),500)
         }
-    },
-    mounted(){
-        this.screenWidth=window.screen.width
-        console.log(this.screenWidth)
     }
 }
 </script>
 
 <style lang="scss">
-.aboutUsList{
-    background:#FAFAFA;
-    padding:10px 15px;
-    overflow:hidden;
-    .text-center{
-        float: left;
-        padding:0 10px;
-    }
-}
     .aboutus-com{
         .img-responsive{
             display: inline-block;
         }
+        background-color: #FAFAFA;
         padding-top: 52px;
         margin-bottom: -50px;
         @media (max-width:768px) {
@@ -64,13 +73,13 @@ export default {
         }
         .bgfa{
             background-color: #FAFAFA;
-            padding: 80px 0;
+            padding: 60px 0;
             @media (max-width: 768px) {
                 padding: 30px 0;
             }
         }
         .bgff{
-            background-color: #FFF;
+            background-color: #FAFAFA;
             padding: 80px 0;
             @media (max-width: 768px) {
                 padding: 30px 0;
@@ -79,7 +88,7 @@ export default {
         .about-bg{
             width: 100%;
             height: 550px;
-            background-image: url("../images/about.jpg");
+            background-image: url("../../images/about.jpg");
             background-size: 100%;
             background-position: center;
             position: relative;
@@ -187,7 +196,4 @@ export default {
             }
         }
     }
-    .consultListActive{
-            color:rgb(255, 208, 75);
-        }
 </style>

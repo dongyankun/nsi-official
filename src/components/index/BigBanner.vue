@@ -38,6 +38,7 @@ export default {
         }
         .swiper-button-prev,
         .swiper-button-next{
+            display:none;
             width:60px;
             height: 60px;
             line-height: 40px;

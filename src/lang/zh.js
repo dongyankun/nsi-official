@@ -3,6 +3,10 @@ module.exports = {
     layoutNav: {
         index: "首  页",
         aboutus: "关于我们",
+        aboutusChild: {
+            joinUs:'加入我们',
+            connectUs:'联系我们'
+        },
         information: "资讯中心",
         event: "会议活动",
         eventChild: {
@@ -90,13 +94,22 @@ module.exports = {
         tel: "联系电话：010-52468286",
         email: "邮箱：info@xinxueshuo.cn",
         phone: "手机：15010927730",
-
         address: "地址：北京市朝阳区曙光西里时间国际A座1501",
         weChat: "微信公众号",
         weibo: "国际教育研究院",
         database: "国际学校四库全书",
         classOnline: "在线课堂",
-        databaseM: "四库全书"
+        databaseM: "四库全书",
+
+        mediaPartners:"媒体合作：Hilda Qin",
+        schoolProject:"学校项目：Hunter Su",
+        researchCollaboration:"研究合作：May Wu    ",
+        businessCooperation:"商务合作：Una Zhang",
+        mediaPartnersEmail:"邮箱：qinqiaoyun@xinxueshuo.cn",
+        schoolProjectEmail:"邮箱：suhengliang@xinxueshuo.cn",
+        researchCollaborationEmail:"邮箱：wuyue@xinxueshuo.cn",
+        businessCooperationEmail:"邮箱：zhangziyu@xinxueshuo.cn",
+
     },
     layoutgesFooter: {
         tel01: "Tel：",
@@ -119,6 +132,8 @@ module.exports = {
         missionContent: "服务国际学校成长，助力行业健康发展。成为中国国际学校行业第一服务平台",
         aboutNSI: "关于 新学说",
         aboutNSIContent: "北京新学说文化传媒有限公司是由国际学校行业专家共同打造的多边媒体平台，以新媒体为载体、以行业研究为核心、以行业服务为平台。自成立以来一直致力于中国国际学校行业研究，对于中国国际学校有着深刻的了解。到目前为止，新学说已在自有媒体上发表了近千篇行业原创文章，十多本深度行业报告，并为多家学校提供了详细的市场、运营、建设方案，受到业内人士和单位的高度认可。",
+        aboutNSI2: "新学说",
+        aboutNSIContent2: "北京新学说文化传媒有限公司是由国际学校行业专家共同打造的多边服务平台,以新媒体为载体、以行业研究为核心、以行业服务为宗旨。自成立以来一直致力于中国国际学校行业研究,对于中国国际学校有着深刻的理解。到目前为止,新学说已在自有媒体上发表了上干篇行业原创文章,二十余本深度行业报告新学说以“让中国没有办不好的国际学校”为使命,从投资建设,市场品牌、运营管理,学术保障,人才培养等多角度为国际学校提供全方位多层次的支持与服务,努力成为中国国际学校的最佳服务合作伙伴。新学说坚信:好的教育可以让世界更美好。新学说将继续奉行“踏踏实实搞硏究,认认真真做内容,实实在在提高服务品质“的价值观,期待通过我们的努力可以让学校更健康地发展,从而为社会提供更好的教育。",
         team: "团队介绍",
         teamContent: "新学说 团队由众多位独特且富有才华的成员组成，致力于为数所国际学校提供全方位服务。努力将研究成果转化为实际可操作方案，为国际学校提供各种咨询式服务，例如前期建校咨询，课程设计，市场策划。",
         partner: "合作伙伴",

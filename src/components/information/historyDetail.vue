@@ -110,13 +110,13 @@ export default {
         },
         // 文章访问统计
         statistics(){
-            this.axios({
-                method:"get",
-                url:"/manager/article/getStatistics.do",
-                params:{
-                    articleId:this.listId
-                }
-            })
+            // this.axios({
+            //     method:"get",
+            //     url:"/manager/article/getStatistics.do",
+            //     params:{
+            //         articleId:this.listId
+            //     }
+            // })
         },
         // 微信分享
         wxInit(){

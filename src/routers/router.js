@@ -44,6 +44,11 @@ import notFondPage from '../components/common/notFondPage.vue'
 // nullPage
 import applyTalent from '../components/nullPage/apply.vue'
 
+//关于我们,加入我们
+import joinUs from '../components/aboutUs/joinUs.vue'
+import connectUs from '../components/aboutUs/connectUs.vue'
+import aboutusIndex from '../components/aboutUs/aboutusIndex.vue'
+
 Vue.use(Router)
 
 const routes = [{
@@ -113,7 +118,20 @@ const routes = [{
         ]
     }, {
         path: "/about",
-        component: aboutusPage
+        component: aboutusPage,
+        redirect: '/about/index',
+        children: [{
+                path: 'index',
+                component: aboutusIndex
+            },{
+                path: 'joinus',
+                component: joinUs
+            },
+            {
+                path: 'connectus',
+                component: connectUs
+            }
+        ]
     }, {
         path: "/ges",
         component: gesPage

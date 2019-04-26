@@ -52,10 +52,10 @@ export default {
                 el: '.swiper-pagination',
                 clickable: true,
             },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
+            // navigation: {
+            //     nextEl: '.swiper-button-next',
+            //     prevEl: '.swiper-button-prev',
+            // },
             observer:true,//修改swiper自己或子元素时，自动初始化swiper
             observeParents:true,//修改swiper的父元素时，自动初始化swiper
             on:{
@@ -85,6 +85,7 @@ export default {
         }
         .swiper-button-prev,
         .swiper-button-next{
+          display:none;
           width:40px !important;
           height: 40px !important;
           line-height: 31px;
